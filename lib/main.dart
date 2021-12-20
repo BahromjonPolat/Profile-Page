@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile/core/constants/exporting_packages.dart';
+import 'package:profile/core/components/exporting_packages.dart';
 
 void main() {
   runApp(const MyApp());
