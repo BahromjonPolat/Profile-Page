@@ -6,8 +6,29 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
+    SizeConfig().init(context);
+    return ListenableProvider(
+      create: (context) => TabProvider(),
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(16.0),
+                vertical: getProportionateScreenHeight(30.0),
+              ),
+              child: Column(
+                children: [
+                  HeaderInfo(),
+                  SizedBox(height: getProportionateScreenHeight(20.0)),
+                  CustomTabBar(),
+                  FooterInfo(),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

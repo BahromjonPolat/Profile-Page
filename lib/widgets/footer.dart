@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-class InfoPageFooter extends StatelessWidget {
-  InfoPageFooter({Key? key}) : super(key: key);
+
+class FooterInfo extends StatelessWidget {
+  FooterInfo({Key? key}) : super(key: key);
 
   late TabProvider _tabProvider;
 
@@ -46,22 +47,13 @@ class InfoPageFooter extends StatelessWidget {
           children: [
             _setTitle('BIO'),
             SizedBox(height: getProportionateScreenHeight(10.0)),
-            MyTextWidget(
-              _lorem,
-              weight: FontWeight.w500,
-              lines: 10,
-              color: ConstColor.lightGrey,
-            ),
+            MyTextWidget(_lorem, lines: 10, color: ConstColor.lightGrey),
           ],
         ),
       );
 
   MyTextWidget _setTitle(String title) {
-    return MyTextWidget(
-      title,
-      color: ConstColor.textColor,
-      weight: FontWeight.w600,
-    );
+    return MyTextWidget(title, weight: FontWeight.w600);
   }
 
   BoxDecoration _boxDecoration() {
@@ -110,12 +102,7 @@ class InfoPageFooter extends StatelessWidget {
         children: [
           Expanded(child: _setTitle(title)),
           Expanded(
-            child: MyTextWidget(
-              data,
-              color: ConstColor.textColor,
-              weight: FontWeight.w500,
-              size: 17.0,
-            ),
+            child: MyTextWidget(data, size: 17.0),
           ),
         ],
       );
@@ -138,17 +125,10 @@ class InfoPageFooter extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MyTextWidget(
-              data,
-              color: ConstColor.textColor,
-              size: 58.0,
-              weight: FontWeight.w500,
-            ),
+            MyTextWidget(data, size: 58.0),
             MyTextWidget(
               title,
               size: 18.0,
-              weight: FontWeight.w500,
-              color: ConstColor.textColor,
               lines: 2,
               align: TextAlign.center,
             ),

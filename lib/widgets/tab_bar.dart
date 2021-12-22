@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
 
-class ProfilePageTabBar extends StatelessWidget {
-  ProfilePageTabBar({Key? key}) : super(key: key);
+class CustomTabBar extends StatelessWidget {
+  CustomTabBar({Key? key}) : super(key: key);
   late int _currentIndex;
   late TabProvider _tabProvider;
 
