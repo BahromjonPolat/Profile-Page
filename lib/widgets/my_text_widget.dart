@@ -17,7 +17,7 @@ class MyTextWidget extends StatelessWidget {
     this.size = 14.0,
     this.weight = FontWeight.w500,
     this.lines = 1,
-    this.family = 'SfPro',
+    this.family = 'SF-Pro',
     this.align = TextAlign.start,
   }) : super(key: key);
 
