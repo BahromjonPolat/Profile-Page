@@ -6,6 +6,7 @@ export 'package:profile/screens/my_home_page.dart';
 export 'package:profile/core/constants/colors.dart';
 export 'package:profile/core/components/size_config.dart';
 export 'package:profile/core/constants/asset_icons.dart';
+export 'package:profile/core/constants/links.dart';
 
 // Widgets
 export 'package:profile/widgets/footer.dart';
@@ -18,6 +19,10 @@ export 'package:cupertino_icons/cupertino_icons.dart';
 export 'package:provider/provider.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:flutter_svg/flutter_svg.dart';
+
+export 'package:firebase_auth/firebase_auth.dart';
+export 'package:cloud_firestore/cloud_firestore.dart';
+export 'package:firebase_core/firebase_core.dart';
 
 // Providers
 export 'package:profile/provider/tab_provider.dart';

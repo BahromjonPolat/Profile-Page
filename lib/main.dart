@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/core/components/theme/my_theme.dart';
 
-void main() {
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+
   runApp(const MyApp());
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
