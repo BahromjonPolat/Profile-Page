@@ -65,7 +65,7 @@ class HeaderInfo extends StatelessWidget {
           SizedBox(height: getProportionateScreenHeight(14.0)),
           _setAccountInfo('Type', 'Junior employee'),
           SizedBox(height: getProportionateScreenHeight(14.0)),
-          _setAccountInfo('Started', 'Dec 2021'),
+          _setAccountInfo('Started', 'Dec 2020'),
           SizedBox(height: getProportionateScreenHeight(14.0)),
           _setAccountInfo('Experience', '1 Year'),
         ],
