@@ -10,10 +10,7 @@ class HeaderInfo extends StatelessWidget {
     _tabProvider = context.watch();
     return Container(
       decoration: _buildBoxDecoration(),
-      padding: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(10.0),
-        vertical: getProportionateScreenHeight(10.0),
-      ),
+      padding: MyEdgeInsets.all(10.0),
       height: getProportionateScreenHeight(250.0),
       child: _isCurrent() ? _showWorkHeader() : _showAboutHeader(),
     );

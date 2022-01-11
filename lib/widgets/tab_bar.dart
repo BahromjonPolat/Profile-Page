@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
-
 class CustomTabBar extends StatelessWidget {
   CustomTabBar({Key? key}) : super(key: key);
   late int _currentIndex;
@@ -14,10 +13,7 @@ class CustomTabBar extends StatelessWidget {
     return Container(
       height: getProportionateScreenHeight(32.0),
       width: getProportionateScreenWidth(194.0),
-      padding: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(6.0),
-        vertical: getProportionateScreenHeight(5.0),
-      ),
+      padding: MyEdgeInsets.symmetric(h: 6.0, v: 5.0),
       decoration: BoxDecoration(
         borderRadius: _setBorderRadius(),
         color: Colors.white,
@@ -49,7 +45,8 @@ class CustomTabBar extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             elevation: 0.0,
             shadowColor: Colors.transparent,
-            primary: _checkIndex(index) ? ConstColor.secondary : Colors.transparent,
+            primary:
+                _checkIndex(index) ? ConstColor.secondary : Colors.transparent,
             shape: RoundedRectangleBorder(borderRadius: _setBorderRadius()),
           ),
         ),

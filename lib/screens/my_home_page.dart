@@ -13,10 +13,7 @@ class MyHomePage extends StatelessWidget {
         body: SingleChildScrollView(
           child: SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(16.0),
-                vertical: getProportionateScreenHeight(30.0),
-              ),
+              padding: MyEdgeInsets.symmetric(v: 30, h: 16),
               child: Column(
                 children: [
                   HeaderInfo(),
