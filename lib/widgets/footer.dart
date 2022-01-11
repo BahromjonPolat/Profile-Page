@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/models/profile_info_model.dart';
 
 class FooterInfo extends StatelessWidget {
   FooterInfo({Key? key}) : super(key: key);
 
   late TabProvider _tabProvider;
+  final ProfileInfo _profile = StaticData.staticProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +29,10 @@ class FooterInfo extends StatelessWidget {
           spacing: getProportionateScreenWidth(19.0),
           runSpacing: getProportionateScreenHeight(19.0),
           children: [
-            _setWorkInfo('Projects\nDone', '5'),
-            _setWorkInfo('Success rate', '92%'),
-            _setWorkInfo('Teams', '3'),
-            _setWorkInfo('Client\nreports', '45'),
+            _setWorkInfo('Projects\nDone', '${_profile.projectsDone}'),
+            _setWorkInfo('Success rate', '${_profile.projectsDone}%'),
+            _setWorkInfo('Teams', '${_profile.teams}'),
+            _setWorkInfo('Client\nreports', '${_profile.clientReports}'),
           ],
         ),
       );
@@ -47,7 +49,7 @@ class FooterInfo extends StatelessWidget {
           children: [
             _setTitle('BIO'),
             SizedBox(height: getProportionateScreenHeight(10.0)),
-            MyTextWidget(_lorem, lines: 10, color: ConstColor.lightGrey),
+            MyTextWidget(_profile.bio, lines: 10, color: ConstColor.lightGrey),
           ],
         ),
       );
@@ -135,7 +137,4 @@ class FooterInfo extends StatelessWidget {
           ],
         ),
       );
-
-  final String _lorem =
-      "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Tortor turpis sodales nulla velit. Nunc cum vitae, rhoncus leo id. Volutpat  Duis tinunt pretium luctus pulvinar pretium.";
 }

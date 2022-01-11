@@ -1,34 +1,46 @@
 class ProfileInfo {
-  String? _sId;
-  String? _firstName;
-  String? _lastName;
-  String? _email;
-  String? _type;
-  int? _experience;
-  String? _bio;
-  int? _projectsDone;
-  int? _successRate;
-  int? _teams;
+  late String _sId;
+  late String _firstName;
+  late String _lastName;
+  late String _email;
+  late String _type;
+  late int _experience;
+  late String _bio;
+  late int _projectsDone;
+  late int _successRate;
+  late int _teams;
+  late int _clientReports;
+  late DateTime _dateOfBirth;
+  late DateTime _started;
+  late String _imageUrl;
 
-  String? get sId => _sId;
+  DateTime get dateOfBirth => _dateOfBirth;
 
-  String? get firstName => _firstName;
+  String get sId => _sId;
 
-  String? get lastName => _lastName;
+  String get firstName => _firstName;
 
-  String? get email => _email;
+  String get lastName => _lastName;
 
-  String? get type => _type;
+  String get email => _email;
 
-  int? get experience => _experience;
+  String get type => _type;
 
-  String? get bio => _bio;
+  int get experience => _experience;
 
-  int? get projectsDone => _projectsDone;
+  String get bio => _bio;
 
-  int? get successRate => _successRate;
+  int get projectsDone => _projectsDone;
 
-  int? get teams => _teams;
+  int get successRate => _successRate;
+
+  int get teams => _teams;
+
+  DateTime get started => _started;
+
+  String get imageUrl => _imageUrl;
+
+  int get clientReports => _clientReports;
 
   ProfileInfo.fromJson(Map<String, dynamic> json) {
     _sId = json['_id'];
@@ -41,6 +53,10 @@ class ProfileInfo {
     _projectsDone = json['projectsDone'];
     _successRate = json['successRate'];
     _teams = json['teams'];
+    _dateOfBirth = DateTime.parse(json['dateOfBirth']);
+    _started = DateTime.parse(json['started']);
+    _imageUrl = json['imageUrl'];
+    _clientReports = json['clientReports'];
   }
 
   Map<String, dynamic> toJson() => {
@@ -54,5 +70,9 @@ class ProfileInfo {
         'projectsDone': _projectsDone,
         'successRate': _successRate,
         'teams': _teams,
+        'started': _started,
+        'dateOfBirth': _dateOfBirth,
+        'imageUrl': _imageUrl,
+        'clientReports': _clientReports,
       };
 }

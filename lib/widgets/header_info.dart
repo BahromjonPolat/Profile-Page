@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/models/profile_info_model.dart';
 
 class HeaderInfo extends StatelessWidget {
   HeaderInfo({Key? key}) : super(key: key);
   late TabProvider _tabProvider;
-
+  final ProfileInfo _profile = StaticData.staticProfile;
   @override
   Widget build(BuildContext context) {
     _tabProvider = context.watch();
@@ -41,11 +42,11 @@ class HeaderInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _setTitle("Bahrom Po'lat"),
+          _setTitle(_profile.firstName),
           SizedBox(height: getProportionateScreenHeight(14.0)),
-          _setAccountInfo('Email', 'bahromjon.ergashboyev@gmail.com'),
+          _setAccountInfo('Email', _profile.email),
           SizedBox(height: getProportionateScreenHeight(14.0)),
-          _setAccountInfo('Date of birth', 'June, 18, 1994'),
+          _setAccountInfo('Date of birth', _profile.started.toString()),
           SizedBox(height: getProportionateScreenHeight(14.0)),
           _setAccountInfo('Address', 'Tashkent district, Tashkent'),
         ],
@@ -60,11 +61,11 @@ class HeaderInfo extends StatelessWidget {
         children: [
           _setTitle("Flutter Developer"),
           SizedBox(height: getProportionateScreenHeight(14.0)),
-          _setAccountInfo('Type', 'Junior employee'),
+          _setAccountInfo('Type', _profile.type),
           SizedBox(height: getProportionateScreenHeight(14.0)),
-          _setAccountInfo('Started', 'Dec 2020'),
+          _setAccountInfo('Started', _profile.started.toString()),
           SizedBox(height: getProportionateScreenHeight(14.0)),
-          _setAccountInfo('Experience', '1 Year'),
+          _setAccountInfo('Experience', '${_profile.experience} Year'),
         ],
       ),
     );
@@ -77,7 +78,7 @@ class HeaderInfo extends StatelessWidget {
   ClipRRect _setProfileImage() => ClipRRect(
         borderRadius: _setBorderRadius(),
         child: Image.network(
-          'https://source.unsplash.com/random/4',
+          _profile.imageUrl,
           fit: BoxFit.cover,
           height: getProportionateScreenHeight(250.0),
           width: getProportionateScreenWidth(154.0),

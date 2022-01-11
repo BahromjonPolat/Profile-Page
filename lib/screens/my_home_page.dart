@@ -7,6 +7,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    getData();
     return ListenableProvider(
       create: (context) => TabProvider(),
       child: Scaffold(
@@ -27,5 +28,11 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> getData() async {
+    InfoService service = InfoService();
+     service.getDataFromUrl();
+     service.getDataFromPref();
   }
 }
