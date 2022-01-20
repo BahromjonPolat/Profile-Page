@@ -6,6 +6,7 @@ class HeaderInfo extends StatelessWidget {
   HeaderInfo({Key? key}) : super(key: key);
   late TabProvider _tabProvider;
   final ProfileInfo _profile = StaticData.staticProfile;
+
   @override
   Widget build(BuildContext context) {
     _tabProvider = context.watch();
@@ -41,13 +42,11 @@ class HeaderInfo extends StatelessWidget {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _setTitle(_profile.firstName),
-          SizedBox(height: getProportionateScreenHeight(14.0)),
           _setAccountInfo('Email', _profile.email),
-          SizedBox(height: getProportionateScreenHeight(14.0)),
           _setAccountInfo('Date of birth', _profile.started.toString()),
-          SizedBox(height: getProportionateScreenHeight(14.0)),
           _setAccountInfo('Address', 'Tashkent district, Tashkent'),
         ],
       ),
@@ -58,13 +57,11 @@ class HeaderInfo extends StatelessWidget {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _setTitle("Flutter Developer"),
-          SizedBox(height: getProportionateScreenHeight(14.0)),
           _setAccountInfo('Type', _profile.type),
-          SizedBox(height: getProportionateScreenHeight(14.0)),
           _setAccountInfo('Started', _profile.started.toString()),
-          SizedBox(height: getProportionateScreenHeight(14.0)),
           _setAccountInfo('Experience', '${_profile.experience} Year'),
         ],
       ),

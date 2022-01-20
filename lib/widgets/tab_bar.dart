@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/widgets/my_decoration.dart';
 
 class CustomTabBar extends StatelessWidget {
   CustomTabBar({Key? key}) : super(key: key);
@@ -32,22 +33,20 @@ class CustomTabBar extends StatelessWidget {
     int index,
   ) =>
       Expanded(
-        child: ElevatedButton(
-          onPressed: () {
+        child: InkWell(
+          onTap: (){
             _tabProvider.onTap(index);
           },
-          child: MyTextWidget(
-            label,
-            color: _checkIndex(index) ? Colors.white : ConstColor.secondary,
-            size: 11.0,
-            weight: FontWeight.w700,
-          ),
-          style: ElevatedButton.styleFrom(
-            elevation: 0.0,
-            shadowColor: Colors.transparent,
-            primary:
-                _checkIndex(index) ? ConstColor.secondary : Colors.transparent,
-            shape: RoundedRectangleBorder(borderRadius: _setBorderRadius()),
+          child: AnimatedContainer(
+            alignment: Alignment.center,
+            decoration: MyDecoration.circular(color: _currentIndex== index ? ConstColor.secondary : null),
+            duration: const Duration(milliseconds: 300),
+            child: MyTextWidget(
+              label,
+              color: _checkIndex(index) ? Colors.white : ConstColor.secondary,
+              size: 11.0,
+              weight: FontWeight.w700,
+            ),
           ),
         ),
       );

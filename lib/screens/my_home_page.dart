@@ -7,7 +7,6 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    getData();
     return ListenableProvider(
       create: (context) => TabProvider(),
       child: Scaffold(
