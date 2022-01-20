@@ -12,8 +12,8 @@ class CustomTabBar extends StatelessWidget {
     _tabProvider = context.watch();
     _currentIndex = _tabProvider.index;
     return Container(
-      height: getProportionateScreenHeight(32.0),
-      width: getProportionateScreenWidth(194.0),
+      height: getHeight(32.0),
+      width: getWidth(194.0),
       padding: MyEdgeInsets.symmetric(h: 6.0, v: 5.0),
       decoration: BoxDecoration(
         borderRadius: _setBorderRadius(),
@@ -34,13 +34,15 @@ class CustomTabBar extends StatelessWidget {
   ) =>
       Expanded(
         child: InkWell(
-          onTap: (){
+          onTap: () {
             _tabProvider.onTap(index);
           },
           child: AnimatedContainer(
-            alignment: Alignment.center,
-            decoration: MyDecoration.circular(color: _currentIndex== index ? ConstColor.secondary : null),
             duration: const Duration(milliseconds: 300),
+            alignment: Alignment.center,
+            decoration: MyDecoration.circular(
+              color: _currentIndex == index ? ConstColor.secondary : null,
+            ),
             child: MyTextWidget(
               label,
               color: _checkIndex(index) ? Colors.white : ConstColor.secondary,
@@ -54,6 +56,6 @@ class CustomTabBar extends StatelessWidget {
   bool _checkIndex(int index) => _currentIndex == index ? true : false;
 
   BorderRadius _setBorderRadius() => BorderRadius.circular(
-        getProportionateScreenWidth(16.0),
+        getWidth(16.0),
       );
 }

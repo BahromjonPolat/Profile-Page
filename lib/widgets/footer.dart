@@ -24,10 +24,10 @@ class FooterInfo extends StatelessWidget {
 
   Padding _showWorks() => Padding(
         padding:
-            EdgeInsets.symmetric(vertical: getProportionateScreenHeight(21.0)),
+            EdgeInsets.symmetric(vertical: getHeight(21.0)),
         child: Wrap(
-          spacing: getProportionateScreenWidth(19.0),
-          runSpacing: getProportionateScreenHeight(19.0),
+          spacing: getWidth(19.0),
+          runSpacing: getHeight(19.0),
           children: [
             _setWorkInfo('Projects\nDone', '${_profile.projectsDone}'),
             _setWorkInfo('Success rate', '${_profile.projectsDone}%'),
@@ -40,7 +40,7 @@ class FooterInfo extends StatelessWidget {
   Container _setBio() => Container(
         width: double.infinity,
         margin: EdgeInsets.symmetric(
-          vertical: getProportionateScreenHeight(19.0),
+          vertical: getHeight(19.0),
         ),
         padding: _setContentPadding(),
         decoration: _boxDecoration(),
@@ -48,7 +48,7 @@ class FooterInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _setTitle('BIO'),
-            SizedBox(height: getProportionateScreenHeight(10.0)),
+            SizedBox(height: getHeight(10.0)),
             MyTextWidget(_profile.bio, lines: 10, color: ConstColor.lightGrey),
           ],
         ),
@@ -61,21 +61,21 @@ class FooterInfo extends StatelessWidget {
   BoxDecoration _boxDecoration() {
     return BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(getProportionateScreenWidth(14.0)));
+        borderRadius: BorderRadius.circular(getWidth(14.0)));
   }
 
   Container _showOnTheWeb() => Container(
         decoration: _boxDecoration(),
-        height: getProportionateScreenHeight(91.0),
+        height: getHeight(91.0),
         width: double.infinity,
         padding: _setContentPadding(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _setTitle('ON THE WEB'),
-            SizedBox(height: getProportionateScreenHeight(10.0)),
+            SizedBox(height: getHeight(10.0)),
             Wrap(
-              spacing: getProportionateScreenWidth(19.0),
+              spacing: getWidth(19.0),
               children: [
                 _setIcon(AssetIcon.linkedIn),
                 _setIcon(AssetIcon.facebook),
@@ -90,11 +90,11 @@ class FooterInfo extends StatelessWidget {
   Container _showContactInfo() => Container(
         padding: _setContentPadding(),
         decoration: _boxDecoration(),
-        margin: EdgeInsets.only(top: getProportionateScreenHeight(19.0)),
+        margin: EdgeInsets.only(top: getHeight(19.0)),
         child: Column(
           children: [
             _setData('WEBSITE', 'itjunior.uz'),
-            SizedBox(height: getProportionateScreenHeight(22.0)),
+            SizedBox(height: getHeight(22.0)),
             _setData('PHONE', '+998 93 188 13 33'),
           ],
         ),
@@ -113,14 +113,14 @@ class FooterInfo extends StatelessWidget {
 
   EdgeInsets _setContentPadding() {
     return EdgeInsets.symmetric(
-      vertical: getProportionateScreenHeight(15.0),
-      horizontal: getProportionateScreenWidth(16.0),
+      vertical: getHeight(15.0),
+      horizontal: getWidth(16.0),
     );
   }
 
   Container _setWorkInfo(String title, String data) => Container(
-        width: getProportionateScreenWidth(158.0),
-        height: getProportionateScreenHeight(183.0),
+        width: getWidth(158.0),
+        height: getHeight(183.0),
         decoration: _boxDecoration(),
         padding: _setContentPadding(),
         alignment: Alignment.center,

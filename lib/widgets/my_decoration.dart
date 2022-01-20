@@ -6,7 +6,7 @@ class MyDecoration {
       BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(
-          getProportionateScreenHeight(radius),
+          getHeight(radius),
         ),
       );
 }

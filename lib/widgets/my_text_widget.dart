@@ -29,7 +29,7 @@ class MyTextWidget extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       textAlign: align,
       style: TextStyle(
-        fontSize: getProportionateScreenWidth(size),
+        fontSize: getWidth(size),
         fontWeight: weight,
         color: color,
         fontFamily: family,

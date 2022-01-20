@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/models/profile_info_model.dart';
+import 'package:profile/widgets/my_decoration.dart';
 
 class HeaderInfo extends StatelessWidget {
   HeaderInfo({Key? key}) : super(key: key);
@@ -11,9 +12,9 @@ class HeaderInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     _tabProvider = context.watch();
     return Container(
-      decoration: _buildBoxDecoration(),
+      decoration: MyDecoration.circular(color: Colors.white, radius: 20.0),
       padding: MyEdgeInsets.all(10.0),
-      height: getProportionateScreenHeight(250.0),
+      height: getHeight(250.0),
       child: _isCurrent() ? _showWorkHeader() : _showAboutHeader(),
     );
   }
@@ -22,7 +23,7 @@ class HeaderInfo extends StatelessWidget {
     return Row(
       children: [
         _setProfileImage(),
-        SizedBox(width: getProportionateScreenWidth(10.0)),
+        SizedBox(width: getWidth(10.0)),
         _setRightSideInfo(),
       ],
     );
@@ -32,7 +33,7 @@ class HeaderInfo extends StatelessWidget {
     return Row(
       children: [
         _setLeftSideInfo(),
-        SizedBox(width: getProportionateScreenWidth(10.0)),
+        SizedBox(width: getWidth(10.0)),
         _setProfileImage(),
       ],
     );
@@ -77,8 +78,8 @@ class HeaderInfo extends StatelessWidget {
         child: Image.network(
           _profile.imageUrl,
           fit: BoxFit.cover,
-          height: getProportionateScreenHeight(250.0),
-          width: getProportionateScreenWidth(154.0),
+          height: getHeight(250.0),
+          width: getWidth(154.0),
         ),
       );
 
@@ -92,14 +93,7 @@ class HeaderInfo extends StatelessWidget {
 
   bool _isCurrent() => _tabProvider.index == 1 ? true : false;
 
-  BoxDecoration _buildBoxDecoration() {
-    return BoxDecoration(
-      borderRadius: _setBorderRadius(),
-      color: Colors.white,
-    );
-  }
-
   BorderRadius _setBorderRadius() => BorderRadius.circular(
-        getProportionateScreenWidth(20.0),
+        getWidth(20.0),
       );
 }

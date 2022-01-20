@@ -17,7 +17,7 @@ class MyHomePage extends StatelessWidget {
               child: Column(
                 children: [
                   HeaderInfo(),
-                  SizedBox(height: getProportionateScreenHeight(20.0)),
+                  SizedBox(height: getHeight(20.0)),
                   CustomTabBar(),
                   FooterInfo(),
                 ],
