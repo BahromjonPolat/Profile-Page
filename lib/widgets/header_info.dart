@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/models/profile_info_model.dart';
 import 'package:profile/widgets/my_decoration.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class HeaderInfo extends StatelessWidget {
   HeaderInfo({Key? key}) : super(key: key);
@@ -47,7 +49,10 @@ class HeaderInfo extends StatelessWidget {
         children: [
           _setTitle(_profile.firstName),
           _setAccountInfo('Email', _profile.email),
-          _setAccountInfo('Date of birth', _profile.started.toString()),
+          _setAccountInfo(
+            'Date of birth',
+            _formattedDate(_profile.dateOfBirth, 'MMMM, dd, yyyy'),
+          ),
           _setAccountInfo('Address', 'Tashkent district, Tashkent'),
         ],
       ),
@@ -62,7 +67,7 @@ class HeaderInfo extends StatelessWidget {
         children: [
           _setTitle("Flutter Developer"),
           _setAccountInfo('Type', _profile.type),
-          _setAccountInfo('Started', _profile.started.toString()),
+          _setAccountInfo('Started', _formattedDate(_profile.started, 'yMMM')),
           _setAccountInfo('Experience', '${_profile.experience} Year'),
         ],
       ),
@@ -90,6 +95,12 @@ class HeaderInfo extends StatelessWidget {
           MyTextWidget(data),
         ],
       );
+
+  String _formattedDate(DateTime dateTime, String format) {
+    final DateFormat dateFormat = DateFormat(format);
+    final String formatted = dateFormat.format(dateTime);
+    return formatted;
+  }
 
   bool _isCurrent() => _tabProvider.index == 1 ? true : false;
 
