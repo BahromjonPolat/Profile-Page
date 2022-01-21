@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   // await Firebase.initializeApp();
@@ -14,7 +13,6 @@ void main() async {
     statusBarIconBrightness: Brightness.dark,
     statusBarBrightness: Brightness.dark
   ));
-  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 }
 
 class MyApp extends StatelessWidget {

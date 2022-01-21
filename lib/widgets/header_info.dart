@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/models/profile_info_model.dart';
-import 'package:profile/widgets/my_decoration.dart';
-import 'package:intl/date_symbol_data_local.dart';
 
 class HeaderInfo extends StatelessWidget {
   HeaderInfo({Key? key}) : super(key: key);

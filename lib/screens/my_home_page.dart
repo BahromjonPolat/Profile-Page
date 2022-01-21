@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile/core/components/custom_navigator.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -7,6 +8,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    CustomNavigator().init(context);
     return ListenableProvider(
       create: (context) => TabProvider(),
       child: Scaffold(
@@ -34,4 +36,6 @@ class MyHomePage extends StatelessWidget {
      service.getDataFromUrl();
      service.getDataFromPref();
   }
+
+
 }

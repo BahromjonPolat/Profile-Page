@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/models/profile_info_model.dart';
 
 class FooterInfo extends StatelessWidget {
   FooterInfo({Key? key}) : super(key: key);
