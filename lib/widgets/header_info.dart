@@ -4,7 +4,7 @@ import 'package:profile/core/components/exporting_packages.dart';
 class HeaderInfo extends StatelessWidget {
   HeaderInfo({Key? key}) : super(key: key);
   late TabProvider _tabProvider;
-  final ProfileInfo _profile = StaticData.staticProfile;
+  final ProfileModel _profile = StaticData.staticProfile;
 
   @override
   Widget build(BuildContext context) {

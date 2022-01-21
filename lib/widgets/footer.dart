@@ -5,7 +5,7 @@ class FooterInfo extends StatelessWidget {
   FooterInfo({Key? key}) : super(key: key);
 
   late TabProvider _tabProvider;
-  final ProfileInfo _profile = StaticData.staticProfile;
+  final ProfileModel _profile = StaticData.staticProfile;
 
   @override
   Widget build(BuildContext context) {

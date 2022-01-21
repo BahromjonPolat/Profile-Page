@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/models/profile_info_model.dart';
 
 class InfoService {
   late SharedPreferences _pref;
@@ -11,9 +9,12 @@ class InfoService {
       _pref = await SharedPreferences.getInstance();
       Uri url = Uri.parse(NetworkLinks.profileInfoLink);
       var data = await get(url);
-      print(data.body);
+
       await _pref.setString('profile', data.body.toString());
-      // return ProfileInfo.fromJson(data.body as Map<String, dynamic>);
+      ProfileModel profile = ProfileModel.fromJson(jsonDecode(data.body));
+
+      StaticData.staticProfile = profile;
+      print(StaticData.staticProfile);
     } catch (err) {}
   }
 
@@ -28,7 +29,7 @@ class InfoService {
       } else {
         profileMap = StaticData.profileData;
       }
-      StaticData.staticProfile = ProfileInfo.fromJson(profileMap);
+      StaticData.staticProfile = ProfileModel.fromJson(profileMap);
     } catch (err) {}
   }
 }

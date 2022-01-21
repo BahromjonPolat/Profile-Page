@@ -7,8 +7,13 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Ilova responsive bo'lishi uchun
     SizeConfig().init(context);
+
+    // Ilovada navigator amallarini har joyda context'siz ishlata olish uchun
     CustomNavigator().init(context);
+
+    InfoService().getDataFromUrl();
     return ListenableProvider(
       create: (context) => TabProvider(),
       child: Scaffold(

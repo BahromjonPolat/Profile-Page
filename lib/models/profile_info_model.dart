@@ -1,78 +1,81 @@
-class ProfileInfo {
-  late String _sId;
-  late String _firstName;
-  late String _lastName;
-  late String _email;
-  late String _type;
-  late int _experience;
-  late String _bio;
-  late int _projectsDone;
-  late int _successRate;
-  late int _teams;
-  late int _clientReports;
-  late DateTime _dateOfBirth;
-  late DateTime _started;
-  late String _imageUrl;
+class ProfileModel {
+  String? _sId;
+  String? _firstName;
+  String? _lastName;
+  String? _email;
+  String? _type;
+  DateTime? _dateOfBirth;
+  DateTime? _started;
+  int? _experience;
+  String? _bio;
+  int? _projectsDone;
+  int? _successRate;
+  int? _teams;
+  int? _clientReports;
+  String? _imageUrl;
 
-  DateTime get dateOfBirth => _dateOfBirth;
+  String get sId => _sId!;
 
-  String get sId => _sId;
+  String get firstName => _firstName!;
 
-  String get firstName => _firstName;
+  String get lastName => _lastName!;
 
-  String get lastName => _lastName;
+  String get email => _email!;
 
-  String get email => _email;
+  String get type => _type!;
 
-  String get type => _type;
+  DateTime get dateOfBirth => _dateOfBirth!;
 
-  int get experience => _experience;
+  DateTime get started => _started!;
 
-  String get bio => _bio;
+  int get experience => _experience!;
 
-  int get projectsDone => _projectsDone;
+  String get bio => _bio!;
 
-  int get successRate => _successRate;
+  int get projectsDone => _projectsDone!;
 
-  int get teams => _teams;
+  int get successRate => _successRate!;
 
-  DateTime get started => _started;
+  int get teams => _teams!;
 
-  String get imageUrl => _imageUrl;
+  int get clientReports => _clientReports!;
 
-  int get clientReports => _clientReports;
+  String get imageUrl => _imageUrl!;
 
-  ProfileInfo.fromJson(Map<String, dynamic> json) {
+  ProfileModel.fromJson(Map<String, dynamic> json) {
+    print("Constructorga kirdi");
     _sId = json['_id'];
     _firstName = json['firstName'];
     _lastName = json['lastName'];
     _email = json['email'];
     _type = json['type'];
+    _dateOfBirth = DateTime.parse(json['dateOfBirth']);
+    _started = DateTime.parse(json['started']);
     _experience = json['experience'];
     _bio = json['bio'];
     _projectsDone = json['projectsDone'];
     _successRate = json['successRate'];
     _teams = json['teams'];
-    _dateOfBirth = DateTime.parse(json['dateOfBirth']);
-    _started = DateTime.parse(json['started']);
-    _imageUrl = json['imageUrl'];
     _clientReports = json['clientReports'];
+    _imageUrl = json['imageUrl'];
   }
 
-  Map<String, dynamic> toJson() => {
-        '_id': _sId,
-        'firstName': _firstName,
-        'lastName': _lastName,
-        'email': _email,
-        'type': _type,
-        'experience': _experience,
-        'bio': _bio,
-        'projectsDone': _projectsDone,
-        'successRate': _successRate,
-        'teams': _teams,
-        'started': _started,
-        'dateOfBirth': _dateOfBirth,
-        'imageUrl': _imageUrl,
-        'clientReports': _clientReports,
-      };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['_id'] = _sId;
+    data['firstName'] = _firstName;
+    data['lastName'] = _lastName;
+    data['email'] = _email;
+    data['type'] = _type;
+    data['dateOfBirth'] = _dateOfBirth;
+    data['started'] = _started;
+    data['experience'] = _experience;
+    data['bio'] = _bio;
+    data['projectsDone'] = _projectsDone;
+    data['successRate'] = _successRate;
+    data['teams'] = _teams;
+    data['clientReports'] = _clientReports;
+    data['imageUrl'] = _imageUrl;
+    return data;
+  }
 }
