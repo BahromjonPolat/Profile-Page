@@ -13,6 +13,8 @@ class ProfileModel {
   int? _teams;
   int? _clientReports;
   String? _imageUrl;
+  String? _phone;
+  String? _webSite;
 
   String get sId => _sId!;
 
@@ -42,8 +44,11 @@ class ProfileModel {
 
   String get imageUrl => _imageUrl!;
 
+  String get webSite => _webSite!;
+
+  String get phone => _phone!;
+
   ProfileModel.fromJson(Map<String, dynamic> json) {
-    print("Constructorga kirdi");
     _sId = json['_id'];
     _firstName = json['firstName'];
     _lastName = json['lastName'];
@@ -58,10 +63,12 @@ class ProfileModel {
     _teams = json['teams'];
     _clientReports = json['clientReports'];
     _imageUrl = json['imageUrl'];
+    _phone = json['phone'];
+    _webSite = json['webSite'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = {};
     data['_id'] = _sId;
     data['firstName'] = _firstName;
     data['lastName'] = _lastName;
@@ -76,6 +83,8 @@ class ProfileModel {
     data['teams'] = _teams;
     data['clientReports'] = _clientReports;
     data['imageUrl'] = _imageUrl;
+    data['phone'] = _phone;
+    data['webSite'] = _webSite;
     return data;
   }
 }

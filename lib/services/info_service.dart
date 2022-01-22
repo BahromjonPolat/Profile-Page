@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/provider/refresh_provider.dart';
 
 class InfoService {
   late SharedPreferences _pref;
 
-  Future getDataFromUrl() async {
+  Future<ProfileModel> getDataFromUrl() async {
     try {
       _pref = await SharedPreferences.getInstance();
       Uri url = Uri.parse(NetworkLinks.profileInfoLink);
@@ -14,12 +15,16 @@ class InfoService {
       ProfileModel profile = ProfileModel.fromJson(jsonDecode(data.body));
 
       StaticData.staticProfile = profile;
-      print(StaticData.staticProfile);
+
+      return StaticData.staticProfile;
+
     } catch (err) {}
+    return StaticData.staticProfile;
   }
 
-  Future getDataFromPref() async {
+  Future<ProfileModel> getDataFromPref() async {
     try {
+      RefreshProvider provider = RefreshProvider();
       _pref = await SharedPreferences.getInstance();
       String profileData = _pref.getString('profile') ?? 'null';
       Map<String, dynamic> profileMap;
@@ -30,6 +35,10 @@ class InfoService {
         profileMap = StaticData.profileData;
       }
       StaticData.staticProfile = ProfileModel.fromJson(profileMap);
+      print(profileMap);
+      provider.refresh();
+      return StaticData.staticProfile;
     } catch (err) {}
+    return StaticData.staticProfile;
   }
 }

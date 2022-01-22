@@ -7,6 +7,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    InfoService().getDataFromPref();
     // Ilova responsive bo'lishi uchun
     SizeConfig().init(context);
 
