@@ -15,7 +15,8 @@ class InfoService {
       ProfileModel profile = ProfileModel.fromJson(jsonDecode(data.body));
 
       StaticData.staticProfile = profile;
-
+      RefreshProvider provider = RefreshProvider();
+      provider.refresh();
       return StaticData.staticProfile;
 
     } catch (err) {}
@@ -35,7 +36,6 @@ class InfoService {
         profileMap = StaticData.profileData;
       }
       StaticData.staticProfile = ProfileModel.fromJson(profileMap);
-      print(profileMap);
       provider.refresh();
       return StaticData.staticProfile;
     } catch (err) {}

@@ -9,6 +9,7 @@ class FooterInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _formattedNumber('12345654');
     _tabProvider = context.watch();
     return _tabProvider.index == 0 ? _showAbout() : _showWorks();
   }
@@ -92,9 +93,9 @@ class FooterInfo extends StatelessWidget {
         margin: EdgeInsets.only(top: getHeight(19.0)),
         child: Column(
           children: [
-            _setData('WEBSITE', 'itjunior.uz'),
+            _setData('WEBSITE',_profile.webSite),
             SizedBox(height: getHeight(22.0)),
-            _setData('PHONE', '+998 93 188 13 33'),
+            _setData('PHONE', _profile.phone),
           ],
         ),
       );
@@ -136,4 +137,11 @@ class FooterInfo extends StatelessWidget {
           ],
         ),
       );
+
+  String _formattedNumber(String number) {
+    String phone = "19795555555";
+    var nf = NumberFormat.decimalPattern();
+    print(nf.format(int.parse(phone)));
+    return '';
+  }
 }
