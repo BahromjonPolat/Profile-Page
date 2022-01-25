@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
-class MyTextWidget extends StatelessWidget {
+class MyText extends StatelessWidget {
   String data;
   Color color;
   double size;
@@ -10,7 +10,7 @@ class MyTextWidget extends StatelessWidget {
   String family;
   TextAlign align;
 
-  MyTextWidget(
+  MyText(
     this.data, {
     Key? key,
     this.color = ConstColor.text,

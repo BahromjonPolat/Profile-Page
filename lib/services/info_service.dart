@@ -19,7 +19,9 @@ class InfoService {
       provider.refresh();
       return StaticData.staticProfile;
 
-    } catch (err) {}
+    } catch (err) {
+      print(err);
+    }
     return StaticData.staticProfile;
   }
 

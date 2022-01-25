@@ -9,7 +9,6 @@ class FooterInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _formattedNumber('12345654');
     _tabProvider = context.watch();
     return _tabProvider.index == 0 ? _showAbout() : _showWorks();
   }
@@ -49,13 +48,13 @@ class FooterInfo extends StatelessWidget {
           children: [
             _setTitle('BIO'),
             SizedBox(height: getHeight(10.0)),
-            MyTextWidget(_profile.bio, lines: 10, color: ConstColor.lightGrey),
+            MyText(_profile.bio, lines: 10, color: ConstColor.lightGrey),
           ],
         ),
       );
 
-  MyTextWidget _setTitle(String title) {
-    return MyTextWidget(title, weight: FontWeight.w600);
+  MyText _setTitle(String title) {
+    return MyText(title, weight: FontWeight.w600);
   }
 
   BoxDecoration _boxDecoration() {
@@ -104,7 +103,7 @@ class FooterInfo extends StatelessWidget {
         children: [
           Expanded(child: _setTitle(title)),
           Expanded(
-            child: MyTextWidget(data, size: 17.0),
+            child: MyText(data, size: 17.0),
           ),
         ],
       );
@@ -127,8 +126,8 @@ class FooterInfo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MyTextWidget(data, size: 58.0),
-            MyTextWidget(
+            MyText(data, size: 58.0),
+            MyText(
               title,
               size: 18.0,
               lines: 2,
@@ -137,11 +136,4 @@ class FooterInfo extends StatelessWidget {
           ],
         ),
       );
-
-  String _formattedNumber(String number) {
-    String phone = "19795555555";
-    var nf = NumberFormat.decimalPattern();
-    print(nf.format(int.parse(phone)));
-    return '';
-  }
 }

@@ -43,7 +43,7 @@ class CustomTabBar extends StatelessWidget {
             decoration: MyDecoration.circular(
               color: _currentIndex == index ? ConstColor.secondary : null,
             ),
-            child: MyTextWidget(
+            child: MyText(
               label,
               color: _checkIndex(index) ? Colors.white : ConstColor.secondary,
               size: 11.0,

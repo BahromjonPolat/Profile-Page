@@ -70,8 +70,8 @@ class HeaderInfo extends StatelessWidget {
     );
   }
 
-  MyTextWidget _setTitle(String title) {
-    return MyTextWidget(title, size: 41.0, lines: 2);
+  MyText _setTitle(String title) {
+    return MyText(title, size: 41.0, lines: 2);
   }
 
   ClipRRect _setProfileImage() => ClipRRect(
@@ -87,8 +87,8 @@ class HeaderInfo extends StatelessWidget {
   _setAccountInfo(String title, String data) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyTextWidget(title, color: ConstColor.lightGrey, size: 9.0),
-          MyTextWidget(data),
+          MyText(title, color: ConstColor.lightGrey, size: 9.0),
+          MyText(data),
         ],
       );
 

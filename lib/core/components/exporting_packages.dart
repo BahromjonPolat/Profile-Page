@@ -18,6 +18,7 @@ export 'package:profile/widgets/header_info.dart';
 export 'package:profile/widgets/my_text_widget.dart';
 export 'package:profile/widgets/tab_bar.dart';
 export 'package:profile/widgets/my_edge_insets.dart';
+export 'package:profile/widgets/my_text_button.dart';
 
 // Packages
 export 'package:cupertino_icons/cupertino_icons.dart';
