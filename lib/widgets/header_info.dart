@@ -95,6 +95,7 @@ class HeaderInfo extends StatelessWidget {
   String _formattedDate(DateTime dateTime, String format) {
     final DateFormat dateFormat = DateFormat(format);
     final String formatted = dateFormat.format(dateTime);
+    DateFormat.ABBR_MONTH;
     return formatted;
   }
 
