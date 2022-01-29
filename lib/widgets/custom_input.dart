@@ -20,6 +20,7 @@ class CustomInput extends StatelessWidget {
     return InputDecoration(
       hintText: AppStrings.message,
       filled: true,
+      contentPadding: MyEdgeInsets.symmetric(h: 12.0),
       fillColor: Colors.white,
       border: _outlineInputBorder(),
       enabledBorder: _outlineInputBorder(),

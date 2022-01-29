@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/widgets/custom_input.dart';
 
 class MessageWritingLayout extends StatelessWidget {
   const MessageWritingLayout({Key? key}) : super(key: key);
@@ -9,11 +8,15 @@ class MessageWritingLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: MyEdgeInsets.symmetric(v: 16.0, h: 12.0),
-      constraints: BoxConstraints(maxHeight: getHeight(155.0)),
+      constraints: BoxConstraints(maxHeight: getHeight(79.0)),
+      alignment: Alignment.bottomCenter,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          CustomIconButton(onPressed: () {}, assetIcon: AssetIcon.facebook),
+          CustomIconButton(onPressed: () {}, assetIcon: AssetIcon.emoticon),
+          _buildSizedBox(),
           Expanded(child: CustomInput()),
+          _buildSizedBox(),
           FloatingActionButton(
             onPressed: () {},
             mini: true,
@@ -25,4 +28,6 @@ class MessageWritingLayout extends StatelessWidget {
       ),
     );
   }
+
+  SizedBox _buildSizedBox() => SizedBox(width: getWidth(12.0));
 }

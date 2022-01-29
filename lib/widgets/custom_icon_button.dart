@@ -15,6 +15,8 @@ class CustomIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onPressed,
+      padding: MyEdgeInsets.symmetric(v: 12.0),
+      constraints: const BoxConstraints(),
       icon: SvgPicture.asset(assetIcon),
     );
   }
