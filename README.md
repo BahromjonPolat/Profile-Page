@@ -1,16 +1,14 @@
-# profile
+# Bahromjon Po'latning shaxshiy ilovasi
 
-A new Flutter project.
+Flutter'da tayyorlangan
 
-## Getting Started
+## Ilova haqida
 
-This project is a starting point for a Flutter application.
+Ushbu ilova Bahromjon Po'latning dasturlash sohasida qilgan ishlari haqida ma'lumot berushi uchun tayyorlandi.
 
-A few resources to get you started if this is your first Flutter project:
+### Sahifalar
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Hozirda ilovada bir dona sahifa muvjud/
+* State Management uchun <b>provider</b>'dan foydalanilgan.
+* Ilova toza kodda yozishga harakat qilindi.
+* <b>DRY</b> (Don't repeat yourself) tamoyili asosida yozildi
