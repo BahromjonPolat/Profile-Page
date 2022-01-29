@@ -8,14 +8,19 @@ class MessageWritingLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      padding: MyEdgeInsets.symmetric(v: 16.0, h: 12.0),
       constraints: BoxConstraints(maxHeight: getHeight(155.0)),
       child: Row(
         children: [
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: CustomInput(),
-          )
+          CustomIconButton(onPressed: () {}, assetIcon: AssetIcon.facebook),
+          Expanded(child: CustomInput()),
+          FloatingActionButton(
+            onPressed: () {},
+            mini: true,
+            elevation: 0.0,
+            backgroundColor: ConstColor.text,
+            child: const Icon(Icons.arrow_upward),
+          ),
         ],
       ),
     );

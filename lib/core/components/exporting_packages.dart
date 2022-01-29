@@ -1,6 +1,7 @@
 
 // Screens
 export 'package:profile/screens/my_home_page.dart';
+export 'package:profile/screens/chat/chat_page.dart';
 
 // Constants
 export 'package:profile/core/constants/colors.dart';
@@ -20,6 +21,10 @@ export 'package:profile/widgets/my_text_widget.dart';
 export 'package:profile/widgets/tab_bar.dart';
 export 'package:profile/widgets/my_edge_insets.dart';
 export 'package:profile/widgets/my_text_button.dart';
+export 'package:profile/widgets/chat_page_app_bar.dart';
+export 'package:profile/widgets/custom_input.dart';
+export 'package:profile/widgets/custom_icon_button.dart';
+export 'package:profile/widgets/message_writing_layout.dart';
 
 // Packages
 export 'package:cupertino_icons/cupertino_icons.dart';

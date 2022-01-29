@@ -19,12 +19,18 @@ class CustomInput extends StatelessWidget {
   InputDecoration _buildInputDecoration() {
     return InputDecoration(
       hintText: AppStrings.message,
+      filled: true,
+      fillColor: Colors.white,
       border: _outlineInputBorder(),
       enabledBorder: _outlineInputBorder(),
       focusedBorder: _outlineInputBorder(),
     );
   }
 
-  OutlineInputBorder _outlineInputBorder() =>
-      const OutlineInputBorder(borderSide: BorderSide.none);
+  OutlineInputBorder _outlineInputBorder() => OutlineInputBorder(
+        borderSide: BorderSide.none,
+        borderRadius: BorderRadius.circular(
+          getWidth(16.0),
+        ),
+      );
 }
