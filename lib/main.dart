@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/screens/chat/chat_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'My Profile Bahromjon',
       debugShowCheckedModeBanner: false,
       theme:MyTheme.light,
-      home: const MyHomePage(),
+      home: const ChatPage(),
     );
   }
 }

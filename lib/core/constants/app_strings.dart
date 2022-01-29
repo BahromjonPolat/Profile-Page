@@ -19,6 +19,7 @@ class AppStrings {
   static final String middleEmployee = _getString('middleEmployee');
   static final String flutterDeveloper = _getString('flutterDeveloper');
   static final String successRate = _getString('successRate');
+  static final String message = _getString('message');
 
   static final Map<String, Map<String, String>> map = {
     "bio": _setString('Bio', 'BIO'),
@@ -27,7 +28,7 @@ class AppStrings {
     "onTheWeb": _setString('Vebda', 'ON THE WEB'),
     "website": _setString('VEB SAYT', 'WEBSITE'),
     "phone": _setString('Telefon', 'Phone'),
-    "work": _setString('Ish', 'Work'),
+    "work": _setString('Ishlar', 'Work'),
     "dateOfBirth": _setString('Tug\'ilgan kun', 'Date Of Birth'),
     "address": _setString('Manzil', 'Address'),
     "type": _setString('Turi', 'Type'),
@@ -40,6 +41,7 @@ class AppStrings {
     "teams": _setString('Jamoalar', 'Teams'),
     "middleEmployee": _setString('O\'rta daraja', 'Middle Employee'),
     "flutterDeveloper" : _setString("Flutter Dasturchi", "Flutter Developer"),
+    "message" : _setString('Xabar', 'Message'),
   };
 
   static Map<String, String> _setString(String uz, String en) => {

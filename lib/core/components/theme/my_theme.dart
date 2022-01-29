@@ -6,6 +6,10 @@ class MyTheme {
     fontFamily: 'SF-Pro',
     canvasColor: ConstColor.primary,
     primaryColor: ConstColor.secondary,
+    appBarTheme: AppBarTheme(
+      backgroundColor: ConstColor.primary,
+      elevation: 1.0,
 
+    )
   );
 }

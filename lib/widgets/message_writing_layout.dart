@@ -13,8 +13,9 @@ class MessageWritingLayout extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: CustomInput())
+            width: MediaQuery.of(context).size.width,
+            child: CustomInput(),
+          )
         ],
       ),
     );
