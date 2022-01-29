@@ -7,6 +7,7 @@ export 'package:profile/core/constants/colors.dart';
 export 'package:profile/core/components/size_config.dart';
 export 'package:profile/core/constants/asset_icons.dart';
 export 'package:profile/core/constants/links.dart';
+export 'package:profile/core/constants/app_strings.dart';
 
 // Data
 export 'package:profile/core/data/network_links.dart';

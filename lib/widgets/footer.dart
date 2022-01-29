@@ -29,8 +29,8 @@ class FooterInfo extends StatelessWidget {
           runSpacing: getHeight(19.0),
           children: [
             _setWorkInfo('Projects\nDone', '${_profile.projectsDone}'),
-            _setWorkInfo('Success rate', '${_profile.projectsDone}%'),
-            _setWorkInfo('Teams', '${_profile.teams}'),
+            _setWorkInfo(AppStrings.successRate, '${_profile.projectsDone}%'),
+            _setWorkInfo(AppStrings.teams, '${_profile.teams}'),
             _setWorkInfo('Client\nreports', '${_profile.clientReports}'),
           ],
         ),
@@ -46,7 +46,7 @@ class FooterInfo extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _setTitle('BIO'),
+            _setTitle(AppStrings.bio),
             SizedBox(height: getHeight(10.0)),
             MyText(_profile.bio, lines: 10, color: ConstColor.lightGrey),
           ],
@@ -71,7 +71,7 @@ class FooterInfo extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _setTitle('ON THE WEB'),
+            _setTitle(AppStrings.onTheWeb),
             SizedBox(height: getHeight(10.0)),
             Wrap(
               spacing: getWidth(19.0),
@@ -92,9 +92,9 @@ class FooterInfo extends StatelessWidget {
         margin: EdgeInsets.only(top: getHeight(19.0)),
         child: Column(
           children: [
-            _setData('WEBSITE',_profile.webSite),
+            _setData(AppStrings.website,_profile.webSite),
             SizedBox(height: getHeight(22.0)),
-            _setData('PHONE', _profile.phone),
+            _setData(AppStrings.phone, _profile.phone),
           ],
         ),
       );

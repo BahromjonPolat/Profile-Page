@@ -1,5 +1,5 @@
 class AppStrings {
-  static const String locale = 'en';
+  static const String locale = 'uz';
   static final String bio = _getString('bio');
   static final String email = _getString('email');
   static final String about = _getString('about');
@@ -18,6 +18,7 @@ class AppStrings {
   static final String clientReports = _getString('clientReports');
   static final String middleEmployee = _getString('middleEmployee');
   static final String flutterDeveloper = _getString('flutterDeveloper');
+  static final String successRate = _getString('successRate');
 
   static final Map<String, Map<String, String>> map = {
     "bio": _setString('Bio', 'BIO'),

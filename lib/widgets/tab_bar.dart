@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/widgets/my_decoration.dart';
 
 class CustomTabBar extends StatelessWidget {
   CustomTabBar({Key? key}) : super(key: key);
@@ -21,8 +20,8 @@ class CustomTabBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          _setButton('About', 0),
-          _setButton('Work', 1),
+          _setButton(AppStrings.about, 0),
+          _setButton(AppStrings.work, 1),
         ],
       ),
     );

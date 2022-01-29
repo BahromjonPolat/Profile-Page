@@ -44,12 +44,12 @@ class HeaderInfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _setTitle(_profile.firstName),
-          _setAccountInfo('Email', _profile.email),
+          _setAccountInfo(AppStrings.email, _profile.email),
           _setAccountInfo(
-            'Date of birth',
+            AppStrings.dateOfBirth,
             _formattedDate(_profile.dateOfBirth, 'MMMM, dd, yyyy'),
           ),
-          _setAccountInfo('Address', 'Tashkent district, Tashkent'),
+          _setAccountInfo(AppStrings.address, 'Tashkent district, Tashkent'),
         ],
       ),
     );
@@ -61,10 +61,10 @@ class HeaderInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _setTitle("Flutter Developer"),
-          _setAccountInfo('Type', _profile.type),
-          _setAccountInfo('Started', _formattedDate(_profile.started, 'yMMM')),
-          _setAccountInfo('Experience', '${_profile.experience} Year'),
+          _setTitle(AppStrings.flutterDeveloper),
+          _setAccountInfo(AppStrings.type, _profile.type),
+          _setAccountInfo(AppStrings.started, _formattedDate(_profile.started, 'yMMM')),
+          _setAccountInfo(AppStrings.experience, '${_profile.experience} ${AppStrings.year}'),
         ],
       ),
     );
