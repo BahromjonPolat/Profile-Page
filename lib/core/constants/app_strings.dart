@@ -33,7 +33,7 @@ class AppStrings {
     "type": _setString('Turi', 'Type'),
     "started": _setString('Boshlagan', 'Started'),
     "experience": _setString('Tajriba', 'Experience'),
-    "projectsDone": _setString('Bitgan Loyihalar', 'Projects Done'),
+    "projectsDone": _setString('Bitirgan Loyihalar', 'Projects Done'),
     "year": _setString('Yil', 'Year'),
     "successRate": _setString('Muvaffaqiyat darajasi', 'Success Rate'),
     "clientReports": _setString('Mijoz hisobotlari', 'Client Reports'),

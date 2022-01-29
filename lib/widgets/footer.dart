@@ -28,10 +28,10 @@ class FooterInfo extends StatelessWidget {
           spacing: getWidth(19.0),
           runSpacing: getHeight(19.0),
           children: [
-            _setWorkInfo('Projects\nDone', '${_profile.projectsDone}'),
+            _setWorkInfo(AppStrings.projectsDone, '${_profile.projectsDone}'),
             _setWorkInfo(AppStrings.successRate, '${_profile.projectsDone}%'),
             _setWorkInfo(AppStrings.teams, '${_profile.teams}'),
-            _setWorkInfo('Client\nreports', '${_profile.clientReports}'),
+            _setWorkInfo(AppStrings.clientReports, '${_profile.clientReports}'),
           ],
         ),
       );

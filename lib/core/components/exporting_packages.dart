@@ -31,6 +31,7 @@ export 'package:http/http.dart';
 export 'package:intl/intl.dart';
 export 'package:profile/models/profile_info_model.dart';
 export 'package:profile/widgets/my_decoration.dart';
+export 'package:cached_network_image/cached_network_image.dart';
 
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:cloud_firestore/cloud_firestore.dart';

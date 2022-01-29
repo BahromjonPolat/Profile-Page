@@ -63,8 +63,10 @@ class HeaderInfo extends StatelessWidget {
         children: [
           _setTitle(AppStrings.flutterDeveloper),
           _setAccountInfo(AppStrings.type, _profile.type),
-          _setAccountInfo(AppStrings.started, _formattedDate(_profile.started, 'yMMM')),
-          _setAccountInfo(AppStrings.experience, '${_profile.experience} ${AppStrings.year}'),
+          _setAccountInfo(
+              AppStrings.started, _formattedDate(_profile.started, 'yMMM')),
+          _setAccountInfo(AppStrings.experience,
+              '${_profile.experience} ${AppStrings.year}'),
         ],
       ),
     );
@@ -74,13 +76,14 @@ class HeaderInfo extends StatelessWidget {
     return MyText(title, size: 41.0, lines: 2);
   }
 
+  // Profile image
   ClipRRect _setProfileImage() => ClipRRect(
         borderRadius: _setBorderRadius(),
-        child: Image.network(
-          _profile.imageUrl,
-          fit: BoxFit.cover,
-          height: getHeight(250.0),
+        child: CachedNetworkImage(
+          imageUrl: _profile.imageUrl,
+          height: getHeight(229.0),
           width: getWidth(154.0),
+          fit: BoxFit.cover,
         ),
       );
 
