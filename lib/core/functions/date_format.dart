@@ -7,12 +7,10 @@ class DateTimeFormat {
     final year = dateTime.year;
     final month = dateTime.month;
     final day = dateTime.day;
-    final hour  = dateTime.hour;
+    final hour = dateTime.hour;
     final minute = dateTime.minute;
     final second = dateTime.second;
     final formatted = '$day-$month-$year $hour:$minute:$second';
     return formatted;
   }
-
-
 }
