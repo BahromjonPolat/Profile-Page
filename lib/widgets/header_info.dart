@@ -90,8 +90,8 @@ class HeaderInfo extends StatelessWidget {
   _setAccountInfo(String title, String data) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText(title, color: ConstColor.lightGrey, size: 9.0),
-          MyText(data),
+          MyText(title, color: ConstColor.lightGrey, size: 9.0,lines: 1),
+          MyText(data, lines: 1),
         ],
       );
 

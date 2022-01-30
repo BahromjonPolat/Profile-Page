@@ -22,8 +22,7 @@ class FooterInfo extends StatelessWidget {
       );
 
   Padding _showWorks() => Padding(
-        padding:
-            EdgeInsets.symmetric(vertical: getHeight(21.0)),
+        padding: EdgeInsets.symmetric(vertical: getHeight(21.0)),
         child: Wrap(
           spacing: getWidth(19.0),
           runSpacing: getHeight(19.0),
@@ -76,10 +75,12 @@ class FooterInfo extends StatelessWidget {
             Wrap(
               spacing: getWidth(19.0),
               children: [
-                _setIcon(AssetIcon.linkedIn),
-                _setIcon(AssetIcon.facebook),
-                _setIcon(AssetIcon.twitter),
-                _setIcon(AssetIcon.instagram),
+                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.telegram),
+                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.facebook),
+                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.linkedIn),
+                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.instagram),
+                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.twitter),
+                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.gitHub),
               ],
             ),
           ],
@@ -92,7 +93,7 @@ class FooterInfo extends StatelessWidget {
         margin: EdgeInsets.only(top: getHeight(19.0)),
         child: Column(
           children: [
-            _setData(AppStrings.website,_profile.webSite),
+            _setData(AppStrings.website, _profile.webSite),
             SizedBox(height: getHeight(22.0)),
             _setData(AppStrings.phone, _profile.phone),
           ],
@@ -108,7 +109,10 @@ class FooterInfo extends StatelessWidget {
         ],
       );
 
-  SvgPicture _setIcon(assetIcon) => SvgPicture.asset(assetIcon);
+  SvgPicture _setIcon(assetIcon) => SvgPicture.asset(
+        assetIcon,
+        height: getHeight(24.0),
+      );
 
   EdgeInsets _setContentPadding() {
     return EdgeInsets.symmetric(

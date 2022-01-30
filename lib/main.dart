@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: 'My Profile Bahromjon',
       debugShowCheckedModeBanner: false,
       theme:MyTheme.light,
-      home: const ChatPage(),
+      home: const MyHomePage(),
     );
   }
 }

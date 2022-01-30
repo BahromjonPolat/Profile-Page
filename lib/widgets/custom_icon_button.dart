@@ -4,10 +4,12 @@ import 'package:profile/core/components/exporting_packages.dart';
 class CustomIconButton extends StatelessWidget {
   VoidCallback onPressed;
   String assetIcon;
+  double vPadding;
 
   CustomIconButton({
     required this.onPressed,
     required this.assetIcon,
+    this.vPadding = 0.0,
     Key? key,
   }) : super(key: key);
 
@@ -15,7 +17,7 @@ class CustomIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onPressed,
-      padding: MyEdgeInsets.symmetric(v: 12.0),
+      padding: MyEdgeInsets.symmetric(v: vPadding),
       constraints: const BoxConstraints(),
       icon: SvgPicture.asset(assetIcon),
     );
