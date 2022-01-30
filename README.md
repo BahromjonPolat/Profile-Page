@@ -1,5 +1,7 @@
 # Bahromjon Po'latning shaxshiy ilovasi
 
+![Preview](./ios/Runner/Assets.xcassets/AppIcon.appiconset/180.png)
+
 Flutter'da tayyorlangan
 
 ## Ilova haqida
