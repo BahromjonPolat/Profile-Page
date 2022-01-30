@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
 class MessageWritingLayout extends StatelessWidget {
-  const MessageWritingLayout({Key? key}) : super(key: key);
-
+   MessageWritingLayout({Key? key}) : super(key: key);
+   final TextEditingController _editingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +15,7 @@ class MessageWritingLayout extends StatelessWidget {
         children: [
           CustomIconButton(onPressed: () {}, assetIcon: AssetIcon.emoticon),
           _buildSizedBox(),
-          Expanded(child: CustomInput()),
+          Expanded(child: CustomInput(controller: _editingController)),
           _buildSizedBox(),
           FloatingActionButton(
             onPressed: () {},

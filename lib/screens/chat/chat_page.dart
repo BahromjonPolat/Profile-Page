@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/core/data/mock_messages.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -23,7 +24,8 @@ class _ChatPageState extends State<ChatPage> {
         children: [
           Expanded(
               child: ListView(
-            children: List.generate(45, (index) {
+            children: List.generate(MockMessages.messages.length, (index) {
+              String message =MockMessages.messages[index];
               return Align(
                 alignment: index % 2 == 0
                     ? Alignment.centerRight
@@ -32,7 +34,7 @@ class _ChatPageState extends State<ChatPage> {
               );
             }),
           )),
-          const MessageWritingLayout(),
+          MessageWritingLayout(),
         ],
       ),
     );
