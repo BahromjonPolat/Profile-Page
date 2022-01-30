@@ -18,23 +18,27 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    List<String> messages = MockMessages.messages.reversed.toList();
     return Scaffold(
       appBar: const ChatPageAppBar(),
       body: Column(
         children: [
           Expanded(
-              child: ListView(
-            children: List.generate(MockMessages.messages.length, (index) {
-              String message =MockMessages.messages[index];
-              return Align(
-                alignment: index % 2 == 0
-                    ? Alignment.centerRight
-                    : Alignment.centerLeft,
-                child: index % 2 == 0 ? NinePatch.right() : NinePatch.left(),
-              );
-            }),
-          )),
-          MessageWritingLayout(),
+              child: ListView.builder(
+                  reverse: true,
+                  itemCount: messages.length,
+                  itemBuilder: (ctx, i) {
+                    String msg = messages[i];
+                    return Align(
+                      alignment: i % 2 == 0
+                          ? Alignment.centerRight
+                          : Alignment.centerLeft,
+                      child: i % 2 == 0
+                          ? NinePatch.right(msg)
+                          : NinePatch.left(msg),
+                    );
+                  })),
+          const MessageWritingLayout(),
         ],
       ),
     );

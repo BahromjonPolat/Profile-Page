@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/screens/chat/chat_page.dart';
+import 'package:profile/provider/message_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   // await Firebase.initializeApp();
 
-  runApp(const MyApp());
+  runApp(MultiProvider(
+      child: const MyApp(),
+      providers: [
+        ChangeNotifierProvider(create: (_)=> MessageProvider()),
+      ]));
+
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,

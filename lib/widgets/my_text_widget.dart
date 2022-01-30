@@ -9,6 +9,7 @@ class MyText extends StatelessWidget {
   int? lines;
   String family;
   TextAlign align;
+  TextOverflow? overflow;
 
   MyText(
     this.data, {
@@ -19,6 +20,7 @@ class MyText extends StatelessWidget {
     this.lines,
     this.family = 'SF-Pro',
     this.align = TextAlign.start,
+    this.overflow,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class MyText extends StatelessWidget {
     return Text(
       data,
       maxLines: lines,
-      overflow: TextOverflow.ellipsis,
+      overflow: overflow,
       textAlign: align,
       style: TextStyle(
         fontSize: getWidth(size),
