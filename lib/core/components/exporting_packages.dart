@@ -25,6 +25,9 @@ export 'package:profile/widgets/chat_page_app_bar.dart';
 export 'package:profile/widgets/custom_input.dart';
 export 'package:profile/widgets/custom_icon_button.dart';
 export 'package:profile/widgets/message_writing_layout.dart';
+export 'package:profile/widgets/nine_patch.dart';
+
+export 'package:profile/widgets/my_box_constraints.dart';
 
 // Packages
 export 'package:cupertino_icons/cupertino_icons.dart';

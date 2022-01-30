@@ -28,7 +28,7 @@ class _ChatPageState extends State<ChatPage> {
                 alignment: index % 2 == 0
                     ? Alignment.centerRight
                     : Alignment.centerLeft,
-                child: _setLeft(adfa),
+                child: index % 2 == 0 ? NinePatch.right() : NinePatch.left(),
               );
             }),
           )),

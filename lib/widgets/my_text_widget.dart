@@ -6,7 +6,7 @@ class MyText extends StatelessWidget {
   Color color;
   double size;
   FontWeight weight;
-  int lines;
+  int? lines;
   String family;
   TextAlign align;
 
@@ -16,7 +16,7 @@ class MyText extends StatelessWidget {
     this.color = ConstColor.text,
     this.size = 14.0,
     this.weight = FontWeight.w500,
-    this.lines = 1,
+    this.lines,
     this.family = 'SF-Pro',
     this.align = TextAlign.start,
   }) : super(key: key);
