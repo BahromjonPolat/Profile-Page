@@ -7,18 +7,20 @@ void main() async {
   await Firebase.initializeApp();
   // await Firebase.initializeApp();
 
-  runApp(MultiProvider(
+  runApp(
+    MultiProvider(
       child: const MyApp(),
       providers: [
-        ChangeNotifierProvider(create: (_)=> MessageProvider()),
-      ]));
+        ChangeNotifierProvider(create: (_) => MessageProvider()),
+      ],
+    ),
+  );
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark,
-    statusBarBrightness: Brightness.dark
-  ));
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.dark));
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Profile Bahromjon',
       debugShowCheckedModeBanner: false,
-      theme:MyTheme.light,
+      theme: MyTheme.light,
       home: const MyHomePage(),
     );
   }
