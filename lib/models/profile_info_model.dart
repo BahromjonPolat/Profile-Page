@@ -1,3 +1,5 @@
+import 'package:profile/models/social_media_model.dart';
+
 class ProfileModel {
   String? _sId;
   String? _firstName;
@@ -15,6 +17,9 @@ class ProfileModel {
   String? _imageUrl;
   String? _phone;
   String? _webSite;
+  List<SocialMedia>? _socialMedias;
+
+  List<SocialMedia> get socialMedias => _socialMedias!;
 
   String get sId => _sId!;
 
@@ -65,6 +70,9 @@ class ProfileModel {
     _imageUrl = json['imageUrl'];
     _phone = json['phone'];
     _webSite = json['webSite'];
+    _socialMedias = (json['socialMedias'] as List)
+        .map((e) => SocialMedia.fromJson(e))
+        .toList();
   }
 
   Map<String, dynamic> toJson() {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/core/components/icon_with_key.dart';
 
 class FooterInfo extends StatelessWidget {
   FooterInfo({Key? key}) : super(key: key);
@@ -62,6 +63,7 @@ class FooterInfo extends StatelessWidget {
         borderRadius: BorderRadius.circular(getWidth(14.0)));
   }
 
+  // On the web
   Container _showOnTheWeb() => Container(
         decoration: _boxDecoration(),
         height: getHeight(91.0),
@@ -74,14 +76,16 @@ class FooterInfo extends StatelessWidget {
             SizedBox(height: getHeight(10.0)),
             Wrap(
               spacing: getWidth(19.0),
-              children: [
-                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.telegram),
-                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.facebook),
-                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.linkedIn),
-                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.instagram),
-                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.twitter),
-                CustomIconButton(onPressed: (){}, assetIcon: AssetIcon.gitHub),
-              ],
+              children: StaticData.staticProfile.socialMedias
+                  .map(
+                    (socialMedia) => CustomIconButton(
+                      onPressed: () {
+                        _onButtonPressed(socialMedia.url);
+                      },
+                      assetIcon: IconWithKey.icon(socialMedia.title),
+                    ),
+                  )
+                  .toList(),
             ),
           ],
         ),
@@ -107,11 +111,6 @@ class FooterInfo extends StatelessWidget {
             child: MyText(data, size: 17.0),
           ),
         ],
-      );
-
-  SvgPicture _setIcon(assetIcon) => SvgPicture.asset(
-        assetIcon,
-        height: getHeight(24.0),
       );
 
   EdgeInsets _setContentPadding() {
@@ -140,4 +139,8 @@ class FooterInfo extends StatelessWidget {
           ],
         ),
       );
+
+  void _onButtonPressed(String urlString) async {
+    await launch(urlString);
+  }
 }
