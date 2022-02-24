@@ -44,7 +44,7 @@ class HeaderInfo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _setTitle(_profile.firstName),
-          _setAccountInfo(AppStrings.email, _profile.email),
+          _setAccountInfo(AppStrings.email, _profile.email.substring(0, 22)),
           _setAccountInfo(
             AppStrings.dateOfBirth,
             _formattedDate(_profile.dateOfBirth, 'MMMM, dd, yyyy'),

@@ -1,5 +1,5 @@
 class AppStrings {
-  static const String locale = 'uz';
+  static const String locale = 'en';
   static final String bio = _getString('bio');
   static final String email = _getString('email');
   static final String about = _getString('about');

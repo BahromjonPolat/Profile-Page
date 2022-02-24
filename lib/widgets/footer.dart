@@ -29,7 +29,7 @@ class FooterInfo extends StatelessWidget {
           runSpacing: getHeight(19.0),
           children: [
             _setWorkInfo(AppStrings.projectsDone, '${_profile.projectsDone}'),
-            _setWorkInfo(AppStrings.successRate, '${_profile.projectsDone}%'),
+            _setWorkInfo(AppStrings.successRate, '${_profile.successRate}%'),
             _setWorkInfo(AppStrings.teams, '${_profile.teams}'),
             _setWorkInfo(AppStrings.clientReports, '${_profile.clientReports}'),
           ],
@@ -78,12 +78,12 @@ class FooterInfo extends StatelessWidget {
               spacing: getWidth(19.0),
               children: StaticData.staticProfile.socialMedias
                   .map(
-                    (socialMedia) => CustomIconButton(
-                      onPressed: () {
-                        _onButtonPressed(socialMedia.url);
-                      },
-                      assetIcon: IconWithKey.icon(socialMedia.title),
-                    ),
+                    (socialMedia) => SvgPicture.asset(
+                      IconWithKey.icon(socialMedia.title),
+                      height: getHeight(32.0),
+                    ).onClick(() {
+                      _onButtonPressed(socialMedia.url);
+                    }),
                   )
                   .toList(),
             ),
@@ -98,8 +98,8 @@ class FooterInfo extends StatelessWidget {
         child: Column(
           children: [
             _setData(AppStrings.website, _profile.webSite),
-            SizedBox(height: getHeight(22.0)),
-            _setData(AppStrings.phone, _profile.phone),
+            // SizedBox(height: getHeight(22.0)),
+            // _setData(AppStrings.phone, _profile.phone),
           ],
         ),
       );
@@ -107,9 +107,9 @@ class FooterInfo extends StatelessWidget {
   Row _setData(String title, String data) => Row(
         children: [
           Expanded(child: _setTitle(title)),
-          Expanded(
-            child: MyText(data, size: 17.0),
-          ),
+          Expanded(child: MyText(data, size: 17.0)).onClick(() {
+            _onButtonPressed(data);
+          }),
         ],
       );
 
@@ -120,6 +120,7 @@ class FooterInfo extends StatelessWidget {
     );
   }
 
+  // Work info
   Container _setWorkInfo(String title, String data) => Container(
         width: getWidth(158.0),
         height: getHeight(183.0),
