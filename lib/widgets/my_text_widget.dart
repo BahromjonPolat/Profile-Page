@@ -31,7 +31,7 @@ class MyText extends StatelessWidget {
       overflow: overflow,
       textAlign: align,
       style: TextStyle(
-        fontSize: getWidth(size),
+        fontSize: size.sp,
         fontWeight: weight,
         color: color,
         fontFamily: family,

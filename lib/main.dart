@@ -5,7 +5,6 @@ import 'package:profile/provider/message_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // await Firebase.initializeApp();
 
   runApp(
     MultiProvider(
@@ -28,11 +27,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My Profile Bahromjon',
-      debugShowCheckedModeBanner: false,
-      theme: MyTheme.light,
-      home: const MyHomePage(),
+    return ScreenUtilInit(
+      minTextAdapt: true,
+      splitScreenMode: true,
+      designSize: const Size(375.0, 812.0),
+      builder: () => MaterialApp(
+        title: 'My Profile Bahromjon',
+        debugShowCheckedModeBanner: false,
+        theme: MyTheme.light,
+        home: const MyHomePage(),
+      ),
     );
   }
 }

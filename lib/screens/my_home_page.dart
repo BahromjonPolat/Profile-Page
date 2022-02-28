@@ -10,7 +10,6 @@ class MyHomePage extends StatelessWidget {
     InfoService().getDataFromUrl();
     // Ilova responsive bo'lishi uchun
     SizeConfig().init(context);
-
     // Ilovada navigator amallarini har joyda context'siz ishlata olish uchun
     CustomNavigator().init(context);
 
@@ -19,6 +18,7 @@ class MyHomePage extends StatelessWidget {
       create: (context) => TabProvider(),
       child: Scaffold(
         body: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
           child: SafeArea(
             child: Padding(
               padding: MyEdgeInsets.symmetric(v: 30, h: 16),
