@@ -1,6 +1,6 @@
 
 // Screens
-export 'package:profile/screens/my_home_page.dart';
+export 'package:profile/screens/home/my_home_page.dart';
 export 'package:profile/screens/chat/chat_page.dart';
 
 // Constants
@@ -29,6 +29,9 @@ export 'package:profile/widgets/nine_patch.dart';
 
 export 'package:profile/widgets/my_box_constraints.dart';
 
+// Models
+export 'package:profile/models/user_model.dart';
+
 // Packages
 export 'package:cupertino_icons/cupertino_icons.dart';
 export 'package:provider/provider.dart';
@@ -42,6 +45,8 @@ export 'package:profile/widgets/my_decoration.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:on_click/on_click.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
+export 'package:device_info_plus/device_info_plus.dart';
+
 
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -52,9 +57,12 @@ export 'package:profile/provider/tab_provider.dart';
 
 // Services
 export 'package:profile/services/info_service.dart';
+export 'package:profile/services/auth_service.dart';
 
 // Themes
 export 'package:profile/core/components/theme/my_theme.dart';
 
 // Others
 export 'package:flutter/services.dart';
+export 'dart:io';
+

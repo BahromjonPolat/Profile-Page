@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/core/data/device_info_model.dart';
+
 UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
 String userModelToJson(UserModel data) => json.encode(data.toJson());
@@ -8,23 +11,25 @@ class UserModel {
   String? _fullName;
   String? _email;
   String? _password;
-  String? _firstTime;
-  String? _lastAction;
+  DateTime? _firstTime;
+  DateTime? _lastAction;
   String? _id;
   String? _phone;
   String? _imgUrl;
   bool? _isOnline;
+  DeviceInfoModel? _device;
 
   UserModel({
     String? fullName,
     String? email,
     String? password,
-    String? firstTime,
-    String? lastAction,
+    DateTime? firstTime,
+    DateTime? lastAction,
     String? id,
     String? phone,
     String? imgUrl,
     bool? isOnline,
+
   }) {
     _fullName = fullName;
     _email = email;
@@ -55,9 +60,9 @@ class UserModel {
 
   String? get password => _password;
 
-  String? get firstTime => _firstTime;
+  DateTime? get firstTime => _firstTime;
 
-  String? get lastAction => _lastAction;
+  DateTime? get lastAction => _lastAction;
 
   String? get id => _id;
 
@@ -66,6 +71,8 @@ class UserModel {
   String? get imgUrl => _imgUrl;
 
   bool? get isOnline => _isOnline;
+  
+  DeviceInfoModel get device => _device!;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
