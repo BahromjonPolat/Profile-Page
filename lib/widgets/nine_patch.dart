@@ -8,7 +8,7 @@ class NinePatch {
         constraints: MyBoxConstraints.box(),
         padding: MyEdgeInsets.all(12.0),
         decoration: MyDecoration.only(
-          color: ConstColor.secondary,
+          color: AppColors.secondary,
           borderRadius: MyBorderRadius.only(
             topRight: 16.0,
             topLeft: 16.0,

@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/widgets/buttons/start_chat_floating_action_button.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    getData().then((value) {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +25,10 @@ class MyHomePage extends StatelessWidget {
     // Ilovada navigator amallarini har joyda context'siz ishlata olish uchun
     CustomNavigator().init(context);
 
-    getData();
-
     return ListenableProvider(
       create: (context) => TabProvider(),
       child: Scaffold(
+        floatingActionButton: const StartChatButton(),
         body: SingleChildScrollView(
           physics: const NeverScrollableScrollPhysics(),
           child: SafeArea(

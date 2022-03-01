@@ -14,7 +14,7 @@ class MyText extends StatelessWidget {
   MyText(
     this.data, {
     Key? key,
-    this.color = ConstColor.text,
+    this.color = AppColors.text,
     this.size = 14.0,
     this.weight = FontWeight.w500,
     this.lines,

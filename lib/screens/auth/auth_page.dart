@@ -3,7 +3,7 @@ import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/provider/auth_provider.dart';
 import 'package:profile/screens/auth/login_page.dart';
 import 'package:profile/screens/auth/register_page.dart';
-import 'package:profile/widgets/primary_button.dart';
+import 'package:profile/widgets/buttons/primary_button.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({Key? key}) : super(key: key);

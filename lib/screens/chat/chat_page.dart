@@ -13,12 +13,62 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     super.initState();
+    print('_ChatPageState.initState');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print('_ChatPageState.dispose');
+  }
+
+  @override
+  void activate() {
+    super.activate();
+    print('_ChatPageState.activate');
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    print('_ChatPageState.deactivate');
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print('_ChatPageState.didChangeDependencies');
+  }
+
+  @override
+  void didUpdateWidget(covariant ChatPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print('_ChatPageState.didUpdateWidget');
+  }
+  @override
+  void reassemble() {
+    super.reassemble();
+    print('_ChatPageState.reassemble');
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    print('_ChatPageState.setState');
   }
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     List<String> messages = MockMessages.messages.reversed.toList();
+    return ListenableProvider(
+      create: (_) => MessageProvider(),
+      builder: (ctx, w) {
+        return _buildScaffold(messages);
+      },
+    );
+  }
+
+  Scaffold _buildScaffold(List<String> messages) {
     return Scaffold(
       appBar: const ChatPageAppBar(),
       body: Column(
@@ -51,11 +101,6 @@ class _ChatPageState extends State<ChatPage> {
         color: Colors.white,
         child: Text(text),
       );
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   String adfa = """
    @override

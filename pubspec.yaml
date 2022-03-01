@@ -30,6 +30,7 @@ dependencies:
   flutter_screenutil: ^5.3.1
   fluttertoast: ^8.0.9
   get_storage: ^2.0.3
+  uuid: ^3.0.6
 
 
 dev_dependencies:

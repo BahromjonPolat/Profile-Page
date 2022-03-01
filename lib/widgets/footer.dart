@@ -48,7 +48,7 @@ class FooterInfo extends StatelessWidget {
           children: [
             _setTitle(AppStrings.bio),
             SizedBox(height: getHeight(10.0)),
-            MyText(_profile.bio, lines: 10, color: ConstColor.lightGrey),
+            MyText(_profile.bio, lines: 10, color: AppColors.lightGrey),
           ],
         ),
       );

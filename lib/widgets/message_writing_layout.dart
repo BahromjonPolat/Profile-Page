@@ -27,7 +27,7 @@ class MessageWritingLayout extends StatelessWidget {
               onPressed: provider.sendMessage,
               mini: true,
               elevation: 0.0,
-              backgroundColor: ConstColor.text,
+              backgroundColor: AppColors.text,
               child: const Icon(Icons.arrow_upward),
             ),
           ],

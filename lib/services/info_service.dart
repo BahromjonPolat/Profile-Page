@@ -25,7 +25,6 @@ class InfoService {
       Map<String, dynamic> profileData =
           _storage.read('profileData') ?? StaticData.staticProfile.toJson();
       ProfileModel profileModel = ProfileModel.fromJson(profileData);
-
       return profileModel;
     } catch (err) {
       return StaticData.staticProfile;

@@ -40,11 +40,11 @@ class CustomTabBar extends StatelessWidget {
             duration: const Duration(milliseconds: 300),
             alignment: Alignment.center,
             decoration: MyDecoration.circular(
-              color: _currentIndex == index ? ConstColor.secondary : null,
+              color: _currentIndex == index ? AppColors.secondary : null,
             ),
             child: MyText(
               label,
-              color: _checkIndex(index) ? Colors.white : ConstColor.secondary,
+              color: _checkIndex(index) ? Colors.white : AppColors.secondary,
               size: 11.0,
               weight: FontWeight.w700,
             ),
