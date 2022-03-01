@@ -18,7 +18,6 @@ class AuthServiceMethods extends AuthService {
   @override
   Future getCurrentUser() async {
     String uid = _auth.currentUser!.uid;
-
   }
 
   @override
@@ -31,6 +30,14 @@ class AuthServiceMethods extends AuthService {
           .whenComplete(() async {
         _uid = _auth.currentUser!.uid;
         message = 'Welcome!';
+
+        // Update user data
+        await _storeService.updateUserData(_uid, data: {
+          'lastAction': DateTime.now(),
+          'isOnline': true,
+        });
+
+        //
         UserModel userModel = await _storeService.getUserById(_uid);
         _storage.write('user', userModel.toJson());
       });

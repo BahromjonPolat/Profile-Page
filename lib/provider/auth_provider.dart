@@ -29,10 +29,7 @@ class AuthProvider extends ChangeNotifier {
 
       if (!_isLogin) {
         authService
-            .register(
-          email: email,
-          password: password,
-        )
+            .register(email: email, password: password)
             .whenComplete(() async {
           // set device info
           String uid = FirebaseAuth.instance.currentUser!.uid;
@@ -62,11 +59,11 @@ class AuthProvider extends ChangeNotifier {
             });
           });
         });
-      }else {
+      } else {
         authService.login(email: email, password: password).then((value) {
           Fluttertoast.showToast(msg: value);
           if (value == 'Welcome!') {
-            CustomNavigator().push(MyHomePage());
+            CustomNavigator().pushReplacement(const MyHomePage());
           }
         });
       }

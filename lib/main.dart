@@ -13,15 +13,6 @@ void main() async {
     developer.log("Something went wrong!", error: error, stackTrace: stack);
   });
 
-  runApp(
-    MultiProvider(
-      child: const MyApp(),
-      providers: [
-        ChangeNotifierProvider(create: (_) => MessageProvider()),
-      ],
-    ),
-  );
-
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -42,7 +33,7 @@ class MyApp extends StatelessWidget {
         title: 'My Profile Bahromjon',
         debugShowCheckedModeBanner: false,
         theme: MyTheme.light,
-        home: const AuthPage(),
+        home: const MyHomePage(),
       ),
     );
   }

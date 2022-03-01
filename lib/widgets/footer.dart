@@ -107,9 +107,7 @@ class FooterInfo extends StatelessWidget {
   Row _setData(String title, String data) => Row(
         children: [
           Expanded(child: _setTitle(title)),
-          Expanded(child: MyText(data, size: 17.0)).onClick(() {
-            _onButtonPressed(data);
-          }),
+          Expanded(child: MyText(data, size: 17.0)),
         ],
       );
 
@@ -131,12 +129,7 @@ class FooterInfo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             MyText(data, size: 58.0),
-            MyText(
-              title,
-              size: 18.0,
-              lines: 2,
-              align: TextAlign.center,
-            ),
+            MyText(title, size: 18.0, lines: 2, align: TextAlign.center),
           ],
         ),
       );

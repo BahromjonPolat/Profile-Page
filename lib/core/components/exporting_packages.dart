@@ -41,7 +41,6 @@ export 'package:cupertino_icons/cupertino_icons.dart';
 export 'package:provider/provider.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:flutter_svg/flutter_svg.dart';
-export 'package:shared_preferences/shared_preferences.dart';
 export 'package:http/http.dart';
 export 'package:intl/intl.dart';
 export 'package:profile/models/profile_info_model.dart';

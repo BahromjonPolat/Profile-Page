@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:profile/core/components/custom_navigator.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -40,7 +39,7 @@ class MyHomePage extends StatelessWidget {
   Future<void> getData() async {
     InfoService service = InfoService();
      service.getDataFromUrl();
-     service.getDataFromPref();
+     service.getDataFromStorage();
   }
 
 

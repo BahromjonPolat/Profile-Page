@@ -1,4 +1,3 @@
-
 import 'package:flutter/rendering.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/core/data/device_info_model.dart';
@@ -25,10 +24,11 @@ class FireStoreService {
         .whenComplete(() {});
   }
 
+  //
   Future<UserModel> getUserById(String uid) async {
-
     try {
-      DocumentSnapshot snap = await _fireStore.collection('users').doc(uid).get();
+      DocumentSnapshot snap =
+          await _fireStore.collection('users').doc(uid).get();
       UserModel user = UserModel.fromJson(snap.data());
       return user;
     } catch (e) {
@@ -38,4 +38,8 @@ class FireStoreService {
     return UserModel();
   }
 
+  Future<void> updateUserData(String uid,
+      {required Map<String, dynamic> data}) async {
+    return await _fireStore.collection('users').doc(uid).update(data);
+  }
 }
