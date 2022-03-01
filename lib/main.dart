@@ -7,6 +7,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await GetStorage.init();
+
   runZonedGuarded(() {
     runApp(const MyApp());
   }, (dynamic error, dynamic stack) {

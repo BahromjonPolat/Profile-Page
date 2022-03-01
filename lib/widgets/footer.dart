@@ -107,7 +107,9 @@ class FooterInfo extends StatelessWidget {
   Row _setData(String title, String data) => Row(
         children: [
           Expanded(child: _setTitle(title)),
-          Expanded(child: MyText(data, size: 17.0)),
+          Expanded(child: MyText(data, size: 17.0).onClick(() {
+            _onButtonPressed(data);
+          })),
         ],
       );
 

@@ -1,3 +1,4 @@
+import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/models/social_media_model.dart';
 
 class ProfileModel {
@@ -59,8 +60,8 @@ class ProfileModel {
     _lastName = json['lastName'];
     _email = json['email'];
     _type = json['type'];
-    _dateOfBirth = DateTime.parse(json['dateOfBirth']);
-    _started = DateTime.parse(json['started']);
+    _dateOfBirth = DateTime.parse(json['dateOfBirth'].toDate().toString());
+    _started = DateTime.parse(json['started'].toDate().toString());
     _experience = json['experience'];
     _bio = json['bio'];
     _projectsDone = json['projectsDone'];

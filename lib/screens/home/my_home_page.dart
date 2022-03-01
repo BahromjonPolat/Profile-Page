@@ -6,13 +6,13 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    InfoService().getDataFromUrl();
     // Ilova responsive bo'lishi uchun
     SizeConfig().init(context);
     // Ilovada navigator amallarini har joyda context'siz ishlata olish uchun
     CustomNavigator().init(context);
 
-    InfoService().getDataFromUrl();
+    getData();
+
     return ListenableProvider(
       create: (context) => TabProvider(),
       child: Scaffold(
@@ -38,9 +38,7 @@ class MyHomePage extends StatelessWidget {
 
   Future<void> getData() async {
     InfoService service = InfoService();
-     service.getDataFromUrl();
-     service.getDataFromStorage();
+    service.getDataFromUrl();
+    service.getDataFromStorage();
   }
-
-
 }
