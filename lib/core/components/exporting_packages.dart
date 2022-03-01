@@ -66,6 +66,9 @@ export 'package:profile/services/auth_service.dart';
 // Themes
 export 'package:profile/core/components/theme/my_theme.dart';
 
+// Extensions
+export 'package:profile/core/extensions/widget_extensions.dart';
+
 // Others
 export 'package:flutter/services.dart';
 export 'dart:io';

@@ -21,6 +21,11 @@ class AppStrings {
   static final String successRate = _getString('successRate');
   static final String message = _getString('message');
   static final String online = _getString('online');
+  static final String fullName = _getString('fullName');
+  static final String signIn = _getString('signIn');
+  static final String signUp = _getString('signUp');
+  static final String password = _getString('password');
+
 
   static final Map<String, Map<String, String>> map = {
     "bio": _setString('Bio', 'BIO'),
