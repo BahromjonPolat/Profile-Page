@@ -21,6 +21,7 @@ class CustomInput extends StatelessWidget {
     return InputDecoration(
       hintText: AppStrings.message,
       filled: true,
+      constraints: BoxConstraints(maxHeight: 150.h),
       contentPadding: MyEdgeInsets.symmetric(h: 12.0),
       fillColor: Colors.white,
       border: _outlineInputBorder(),

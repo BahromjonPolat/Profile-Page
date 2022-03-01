@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:profile/core/data/mock_messages.dart';
+import 'package:profile/core/components/exporting_packages.dart';
+import 'package:profile/models/message.dart';
+import 'package:profile/services/message_service.dart';
+import 'package:uuid/uuid.dart';
 
 class MessageProvider extends ChangeNotifier {
+  final MessageService _messageService = MessageService();
   final TextEditingController _messageController = TextEditingController();
+  final String _uid = FirebaseAuth.instance.currentUser!.uid;
+  final Uuid _uuid = const Uuid();
 
   void sendMessage() {
-    String message = _messageController.text.trim();
-    if (message.isEmpty) {
+    String msg = _messageController.text.trim();
+    if (msg.isEmpty) {
       return;
     }
-    MockMessages.messages.add(message);
+    Message message = Message(
+      id: _uuid.v4(),
+      userId: _uid,
+      sender: _uid,
+      receiver: NetworkLinks.uid,
+      message: msg,
+      isRead: false,
+      sentTime: DateTime.now(),
+    );
+    _messageService.sendMessage(message);
     _messageController.clear();
     notifyListeners();
   }

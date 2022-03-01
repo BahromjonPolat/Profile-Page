@@ -6,4 +6,8 @@ class AssetIcon {
   static const String emoticon = 'assets/icons/emoticon.svg';
   static const String gitHub = 'assets/icons/GitHub.svg';
   static const String telegram = 'assets/icons/telegram.svg';
+  static const String arrowBack = 'assets/icons/arrowBack.svg';
+  static const String edit = 'assets/icons/edit.svg';
+  static const String send = 'assets/icons/send.svg';
+  static const String settings = 'assets/icons/settings.svg';
 }

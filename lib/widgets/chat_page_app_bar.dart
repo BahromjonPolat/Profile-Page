@@ -6,17 +6,45 @@ class ChatPageAppBar extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: MyText(StaticData.staticProfile.firstName),
-      actions: [
-        CircleAvatar(
-          backgroundImage: NetworkImage(StaticData.staticProfile.imageUrl),
-        )
-      ],
+    return SafeArea(
+      child: Row(
+        children: [
+          CustomIconButton(
+            assetIcon: AssetIcon.arrowBack,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              MyText(
+                StaticData.staticProfile.firstName,
+                size: 16.0,
+                weight: FontWeight.w600,
+              ),
+              MyText(
+                _showLastTime(StaticData.staticProfile.dateOfBirth),
+                weight: FontWeight.w400,
+              )
+            ],
+          ),
+          const Spacer(),
+          CircleAvatar(
+            backgroundImage: NetworkImage(StaticData.staticProfile.imageUrl),
+          ),
+        ],
+      ),
     );
   }
 
+  String _showLastTime(DateTime dateTime) {
+    DateFormat format = DateFormat('MMM, dd');
+    String formatted = format.format(dateTime);
+    return 'Last seen at $formatted';
+  }
+
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size(double.infinity, getHeight(56.0));
 }

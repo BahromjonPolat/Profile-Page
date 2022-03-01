@@ -11,7 +11,7 @@ class Message {
     String? sender,
     String? receiver,
     String? message,
-    String? time,
+    DateTime? sentTime,
     bool? isRead,
   }) {
     _id = id;
@@ -19,7 +19,7 @@ class Message {
     _sender = sender;
     _receiver = receiver;
     _message = message;
-    _time = time;
+    _sentTime = sentTime;
     _isRead = isRead;
   }
 
@@ -29,7 +29,7 @@ class Message {
     _sender = json['sender'];
     _receiver = json['receiver'];
     _message = json['message'];
-    _time = json['time'];
+    _sentTime = json['time'];
     _isRead = json['isRead'];
   }
 
@@ -38,7 +38,7 @@ class Message {
   String? _sender;
   String? _receiver;
   String? _message;
-  String? _time;
+  DateTime? _sentTime;
   bool? _isRead;
 
   String? get id => _id;
@@ -51,7 +51,7 @@ class Message {
 
   String? get message => _message;
 
-  String? get time => _time;
+  DateTime? get sentTime => _sentTime;
 
   bool? get isRead => _isRead;
 
@@ -62,7 +62,7 @@ class Message {
     map['sender'] = _sender;
     map['receiver'] = _receiver;
     map['message'] = _message;
-    map['time'] = _time;
+    map['time'] = _sentTime;
     map['isRead'] = _isRead;
     return map;
   }
