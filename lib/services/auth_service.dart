@@ -3,7 +3,7 @@ import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/core/data/device_info_model.dart';
 
 abstract class AuthService {
-  Future register(String email, String password);
+  Future register({required String email, required String password});
 
   Future login();
 
@@ -21,7 +21,7 @@ class AuthServiceMethods extends AuthService {
   Future login() async {}
 
   @override
-  Future register(String email, String password) async {
+  Future register({required String email, required String password}) async {
     try {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);

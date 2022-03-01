@@ -44,6 +44,10 @@ class AppStrings {
     "flutterDeveloper" : _setString("Flutter Dasturchi", "Flutter Developer"),
     "message" : _setString('Xabar', 'Message'),
     "online" : _setString('Onlayn', 'Online'),
+    "signUp" : _setString('Ro`yxatdan o`tish', 'Sign Up'),
+    "signIn" : _setString("Kirish", 'Sign In'),
+    "password" : _setString('Parol', 'Password'),
+    "fullName" : _setString('Ism, sharif', 'Full Name'),
   };
 
   static Map<String, String> _setString(String uz, String en) => {

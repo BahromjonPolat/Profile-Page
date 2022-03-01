@@ -15,7 +15,7 @@ class FireStoreService {
     } catch (e) {}
   }
 
-  static setUserData(UserModel user) async {
+  Future setUserData(UserModel user) async {
     _fireStore
         .collection('/users')
         .doc(user.id)

@@ -17,7 +17,7 @@ class UserModel {
   String? _phone;
   String? _imgUrl;
   bool? _isOnline;
-  DeviceInfoModel? _device;
+  dynamic _device;
 
   UserModel({
     String? fullName,
@@ -29,6 +29,7 @@ class UserModel {
     String? phone,
     String? imgUrl,
     bool? isOnline,
+    dynamic device,
 
   }) {
     _fullName = fullName;
@@ -40,6 +41,7 @@ class UserModel {
     _phone = phone;
     _imgUrl = imgUrl;
     _isOnline = isOnline;
+    _device = device;
   }
 
   UserModel.fromJson(dynamic json) {
@@ -85,6 +87,7 @@ class UserModel {
     map['phone'] = _phone;
     map['imgUrl'] = _imgUrl;
     map['isOnline'] = _isOnline;
+    map['device'] = _device;
     return map;
   }
 }

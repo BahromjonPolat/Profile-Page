@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/provider/message_provider.dart';
+import 'package:profile/screens/auth/register_page.dart';
 import 'package:profile/screens/test/device_test.dart';
 import 'package:profile/screens/test/firebase_test.dart';
 import 'dart:async';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         title: 'My Profile Bahromjon',
         debugShowCheckedModeBanner: false,
         theme: MyTheme.light,
-        home: const FirebaseTest(),
+        home: const RegisterPage(),
       ),
     );
   }

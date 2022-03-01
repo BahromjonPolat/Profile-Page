@@ -29,6 +29,10 @@ export 'package:profile/widgets/nine_patch.dart';
 
 export 'package:profile/widgets/my_box_constraints.dart';
 
+// Components
+export 'package:profile/core/components/custom_navigator.dart';
+
+
 // Models
 export 'package:profile/models/user_model.dart';
 
@@ -46,7 +50,7 @@ export 'package:cached_network_image/cached_network_image.dart';
 export 'package:on_click/on_click.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:device_info_plus/device_info_plus.dart';
-
+export 'package:fluttertoast/fluttertoast.dart';
 
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:cloud_firestore/cloud_firestore.dart';
