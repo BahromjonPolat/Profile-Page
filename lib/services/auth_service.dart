@@ -1,24 +1,68 @@
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/core/data/device_info_model.dart';
+import 'package:profile/services/fire_store_service.dart';
 
 abstract class AuthService {
   Future register({required String email, required String password});
 
-  Future login();
+  Future<String> login({required String email, required String password});
 
   Future getCurrentUser();
 }
 
 class AuthServiceMethods extends AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _fireStore = FirebaseFirestore.instance;
+  final FireStoreService _storeService = FireStoreService();
+  final GetStorage _storage = GetStorage();
+  late String _uid;
 
   @override
-  Future getCurrentUser() async {}
+  Future getCurrentUser() async {
+    String uid = _auth.currentUser!.uid;
+
+  }
 
   @override
-  Future login() async {}
+  Future<String> login(
+      {required String email, required String password}) async {
+    late String message;
+    try {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .whenComplete(() async {
+        _uid = _auth.currentUser!.uid;
+        message = 'Welcome!';
+        UserModel userModel = await _storeService.getUserById(_uid);
+        _storage.write('user', userModel.toJson());
+      });
+    } on FirebaseAuthException catch (e) {
+      switch (e.code) {
+        case "ERROR_INVALID_EMAIL":
+          message = "Your email address appears to be malformed.";
+          break;
+        case "ERROR_WRONG_PASSWORD":
+          message = "Your password is wrong.";
+          break;
+        case "ERROR_USER_NOT_FOUND":
+          message = "User with this email doesn't exist.";
+          break;
+        case "ERROR_USER_DISABLED":
+          message = "User with this email has been disabled.";
+          break;
+        case "ERROR_TOO_MANY_REQUESTS":
+          message = "Too many requests. Try again later.";
+          break;
+        case "ERROR_OPERATION_NOT_ALLOWED":
+          message = "Signing in with Email and Password is not enabled.";
+          break;
+        default:
+          message = "An undefined Error happened.";
+      }
+    } catch (e) {
+      print(e);
+    }
+
+    return message;
+  }
 
   @override
   Future register({required String email, required String password}) async {

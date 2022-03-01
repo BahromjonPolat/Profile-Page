@@ -2,7 +2,7 @@
 // Screens
 export 'package:profile/screens/home/my_home_page.dart';
 export 'package:profile/screens/chat/chat_page.dart';
-
+export 'package:profile/screens/auth/auth_page.dart';
 // Constants
 export 'package:profile/core/constants/colors.dart';
 export 'package:profile/core/components/size_config.dart';
@@ -51,6 +51,7 @@ export 'package:on_click/on_click.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:device_info_plus/device_info_plus.dart';
 export 'package:fluttertoast/fluttertoast.dart';
+export 'package:get_storage/get_storage.dart';
 
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -58,7 +59,8 @@ export 'package:firebase_core/firebase_core.dart';
 
 // Providers
 export 'package:profile/provider/tab_provider.dart';
-
+export 'package:profile/provider/message_provider.dart';
+export 'package:profile/provider/auth_provider.dart';
 // Services
 export 'package:profile/services/info_service.dart';
 export 'package:profile/services/auth_service.dart';

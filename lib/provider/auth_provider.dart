@@ -8,10 +8,15 @@ class AuthProvider extends ChangeNotifier {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
+  bool _isLogin = true;
 
-  // bool _isAgree = false;
+  void changePage() {
+    _isLogin = !_isLogin;
+    notifyListeners();
+  }
 
   void onPressed() {
+    GetStorage storage = GetStorage();
     AuthService authService = AuthServiceMethods();
 
     if (_formKey.currentState!.validate()) {
@@ -21,39 +26,50 @@ class AuthProvider extends ChangeNotifier {
       String fullName = _nameController.text.trim();
       String email = _emailController.text.trim().toLowerCase();
       String password = _passwordController.text.trim();
-      authService
-          .register(
-        email: email,
-        password: password,
-      )
-          .whenComplete(() async {
-            // set device info
-        String uid = FirebaseAuth.instance.currentUser!.uid;
-        Map<String, dynamic> deviceInfo = await device.readAndroidBuildData();
-        FirebaseFirestore.instance
-            .collection('device_info')
-            .doc(uid)
-            .set(deviceInfo)
-            .whenComplete(() {
-              // Set User data
+
+      if (!_isLogin) {
+        authService
+            .register(
+          email: email,
+          password: password,
+        )
+            .whenComplete(() async {
+          // set device info
           String uid = FirebaseAuth.instance.currentUser!.uid;
-          UserModel user = UserModel(
-            id: uid,
-            fullName: fullName,
-            email: email,
-            password: password,
-            isOnline: false,
-            phone: 'null',
-            imgUrl: 'default',
-            firstTime: DateTime.now(),
-            lastAction: DateTime.now(),
-            device: device.toReference(uid),
-          );
-          FireStoreService().setUserData(user).then((value) {
-            print('Finished');
+          Map<String, dynamic> deviceInfo = await device.readAndroidBuildData();
+          FirebaseFirestore.instance
+              .collection('device_info')
+              .doc(uid)
+              .set(deviceInfo)
+              .whenComplete(() async {
+            // Set User data
+            String uid = FirebaseAuth.instance.currentUser!.uid;
+            UserModel user = UserModel(
+              id: uid,
+              fullName: fullName,
+              email: email,
+              password: password,
+              isOnline: false,
+              phone: 'null',
+              imgUrl: 'default',
+              firstTime: DateTime.now(),
+              lastAction: DateTime.now(),
+              device: device.toReference(uid),
+            );
+            await storage.write('user', user.toJson());
+            await FireStoreService().setUserData(user).then((value) {
+              Fluttertoast.showToast(msg: 'Welcome ${user.fullName}!');
+            });
           });
         });
-      });
+      }else {
+        authService.login(email: email, password: password).then((value) {
+          Fluttertoast.showToast(msg: value);
+          if (value == 'Welcome!') {
+            CustomNavigator().push(MyHomePage());
+          }
+        });
+      }
     }
   }
 
@@ -64,4 +80,6 @@ class AuthProvider extends ChangeNotifier {
   TextEditingController get emailController => _emailController;
 
   GlobalKey<FormState> get formKey => _formKey;
+
+  bool get isLogin => _isLogin;
 }

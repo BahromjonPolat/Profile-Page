@@ -2,25 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/core/components/form_validator.dart';
 
-class RegisterPage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   final AuthProvider provider;
 
-  const RegisterPage({Key? key, required this.provider}) : super(key: key);
+  const LoginPage({Key? key, required this.provider}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFormField(
-          controller: provider.nameController,
-          validator: FormValidator.general,
-          keyboardType: TextInputType.name,
-          textInputAction: TextInputAction.next,
-          textCapitalization: TextCapitalization.words,
-          maxLength: 48,
-          decoration: _setDecoration(AppStrings.fullName, Icons.person_outline),
-        ),
-        SizedBox(height: 12.h),
         TextFormField(
           controller: provider.emailController,
           validator: FormValidator.email,
