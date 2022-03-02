@@ -35,6 +35,7 @@ export 'package:profile/core/components/custom_navigator.dart';
 
 // Models
 export 'package:profile/models/user_model.dart';
+export 'package:profile/models/message.dart';
 
 // Packages
 export 'package:cupertino_icons/cupertino_icons.dart';
@@ -63,6 +64,7 @@ export 'package:profile/provider/auth_provider.dart';
 // Services
 export 'package:profile/services/info_service.dart';
 export 'package:profile/services/auth_service.dart';
+export 'package:profile/services/message_service.dart';
 
 // Themes
 export 'package:profile/core/components/theme/my_theme.dart';

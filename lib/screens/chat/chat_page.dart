@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
@@ -33,11 +34,39 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       appBar: const ChatPageAppBar(),
       body: Column(
-        children:const [
-          Expanded(child: Center(child: Text("Message"))),
-          MessageWritingLayout(),
+        children: [
+          Expanded(
+            child: StreamBuilder<QuerySnapshot>(
+              stream: MessageService().getMessage(),
+              builder: (_, AsyncSnapshot<QuerySnapshot> snap) {
+                if (snap.hasData) {
+                  return _buildListView(snap);
+                }
+                return const Center(child: CupertinoActivityIndicator());
+              },
+            ),
+          ),
+          const MessageWritingLayout(),
         ],
       ),
     );
+  }
+
+  ListView _buildListView(AsyncSnapshot<QuerySnapshot<Object?>> snap) {
+    return ListView.builder(
+        reverse: true,
+        itemCount: snap.data!.docs.length,
+        itemBuilder: (ctx, index) {
+          Map<String, dynamic> map =
+              snap.data!.docs[index].data() as Map<String, dynamic>;
+          Message message = Message.fromJson(map);
+          bool isEqual = message.sender! == NetworkLinks.uid;
+          return Align(
+            alignment: isEqual ? Alignment.centerLeft : Alignment.centerRight,
+            child: isEqual
+                ? NinePatch.left(message.message!)
+                : NinePatch.right(message.message!),
+          );
+        });
   }
 }

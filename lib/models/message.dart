@@ -29,7 +29,7 @@ class Message {
     _sender = json['sender'];
     _receiver = json['receiver'];
     _message = json['message'];
-    _sentTime = json['time'];
+    _sentTime = DateTime.parse(json['sentTime'].toDate().toString());
     _isRead = json['isRead'];
   }
 
@@ -62,7 +62,7 @@ class Message {
     map['sender'] = _sender;
     map['receiver'] = _receiver;
     map['message'] = _message;
-    map['time'] = _sentTime;
+    map['sentTime'] = _sentTime;
     map['isRead'] = _isRead;
     return map;
   }

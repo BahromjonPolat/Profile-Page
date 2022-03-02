@@ -1,4 +1,3 @@
-import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/models/social_media_model.dart';
 
 class ProfileModel {

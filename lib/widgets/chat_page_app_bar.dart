@@ -33,7 +33,10 @@ class ChatPageAppBar extends StatelessWidget with PreferredSizeWidget {
           const Spacer(),
           CircleAvatar(
             backgroundImage: NetworkImage(StaticData.staticProfile.imageUrl),
-          ),
+          ).onClick(()async {
+          await  FirebaseAuth.instance.signOut();
+          CustomNavigator().pushReplacement(MyHomePage());
+          }),
         ],
       ),
     );

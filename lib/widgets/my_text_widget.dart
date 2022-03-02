@@ -8,7 +8,7 @@ class MyText extends StatelessWidget {
   FontWeight weight;
   int? lines;
   String family;
-  TextAlign align;
+  TextAlign? align;
   TextOverflow? overflow;
 
   MyText(
@@ -19,7 +19,7 @@ class MyText extends StatelessWidget {
     this.weight = FontWeight.w500,
     this.lines,
     this.family = 'SF-Pro',
-    this.align = TextAlign.start,
+    this.align,
     this.overflow,
   }) : super(key: key);
 

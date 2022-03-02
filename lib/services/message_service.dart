@@ -12,4 +12,10 @@ class MessageService {
         .doc(message.id)
         .set(message.toJson());
   }
+
+  Stream<QuerySnapshot> getMessage() => _fireStore
+        .collection('messages')
+        .where('userId', isEqualTo: _uid)
+        .orderBy('sentTime', descending: true).snapshots();
+
 }
