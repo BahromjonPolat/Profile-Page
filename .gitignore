@@ -32,7 +32,7 @@
 /build/
 lib/core/data/
 lib/screens/test/
-
+lib/core/admin_panel/
 # Web related
 lib/generated_plugin_registrant.dart
 

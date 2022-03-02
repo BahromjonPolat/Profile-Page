@@ -1,6 +1,4 @@
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/models/message.dart';
-import 'package:uuid/uuid.dart';
 
 class MessageService {
   final String _uid = FirebaseAuth.instance.currentUser!.uid;

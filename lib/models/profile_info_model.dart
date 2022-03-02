@@ -54,13 +54,14 @@ class ProfileModel {
   String get phone => _phone!;
 
   ProfileModel.fromJson(Map<String, dynamic> json) {
+
     _sId = json['_id'];
     _firstName = json['firstName'];
     _lastName = json['lastName'];
     _email = json['email'];
     _type = json['type'];
-    _dateOfBirth = DateTime.parse(json['dateOfBirth'].toDate().toString());
-    _started = DateTime.parse(json['started'].toDate().toString());
+    _dateOfBirth = DateTime.parse(json['dateOfBirth']);
+    _started = DateTime.parse(json['started']);
     _experience = json['experience'];
     _bio = json['bio'];
     _projectsDone = json['projectsDone'];

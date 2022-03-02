@@ -48,8 +48,8 @@ class UserModel {
     _fullName = json['fullName'];
     _email = json['email'];
     _password = json['password'];
-    _firstTime = json['firstTime'];
-    _lastAction = json['lastAction'];
+    _firstTime = json['firstTime'].toDate();
+    _lastAction = json['lastAction'].toDate();
     _id = json['id'];
     _phone = json['phone'];
     _imgUrl = json['imgUrl'];

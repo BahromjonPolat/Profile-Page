@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/widgets/buttons/start_chat_floating_action_button.dart';
@@ -11,14 +10,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool _isLoad = false;
   @override
   void initState() {
     super.initState();
-    getData().then((value) {
-      _isLoad = true;
-      setState(() {});
-    });
+    // getData().then((value) {
+    //   setState(() {});
+    // });
   }
 
   @override
@@ -32,9 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
       create: (context) => TabProvider(),
       child: Scaffold(
         floatingActionButton: const StartChatButton(),
-        body: _isLoad ?  _buildSingleChildScrollView() : Center(
-          child: CupertinoActivityIndicator(),
-        ),
+        body: _buildSingleChildScrollView(),
       ),
     );
   }

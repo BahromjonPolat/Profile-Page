@@ -12,7 +12,6 @@ class MessageWritingLayout extends StatelessWidget {
         MessageProvider provider = ctx.watch();
         return Container(
           padding: MyEdgeInsets.symmetric(v: 16.0, h: 12.0),
-          // constraints: BoxConstraints(maxHeight: getHeight(79.0)),
           alignment: Alignment.bottomCenter,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,

@@ -9,11 +9,7 @@ class NinePatch {
         padding: MyEdgeInsets.all(12.0),
         decoration: MyDecoration.only(
           color: AppColors.secondary,
-          borderRadius: MyBorderRadius.only(
-            topRight: 16.0,
-            topLeft: 16.0,
-            bottomLeft: 16.0,
-          ),
+          borderRadius: MyBorderRadius.circular(),
         ),
         child: MyText(message, color: Colors.white),
       );
@@ -23,9 +19,9 @@ class NinePatch {
         constraints: MyBoxConstraints.box(),
         padding: MyEdgeInsets.all(12.0),
         decoration: MyDecoration.only(
-            color: Colors.white,
-            borderRadius: MyBorderRadius.only(
-                topRight: 16.0, topLeft: 16.0, bottomRight: 16.0)),
+          color: Colors.white,
+          borderRadius: MyBorderRadius.circular(),
+        ),
         child: MyText(message),
       );
 }
