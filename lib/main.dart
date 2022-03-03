@@ -42,7 +42,5 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  // TODO: HomePage'dagi xatoni tuzatish.
-  // TODO: Play Store'ga yuklash
 }
 

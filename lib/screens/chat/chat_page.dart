@@ -54,13 +54,14 @@ class _ChatPageState extends State<ChatPage> {
 
   ListView _buildListView(AsyncSnapshot<QuerySnapshot<Object?>> snap) {
     return ListView.builder(
+        physics: const BouncingScrollPhysics(),
         reverse: true,
         itemCount: snap.data!.docs.length,
         itemBuilder: (ctx, index) {
           Map<String, dynamic> map =
               snap.data!.docs[index].data() as Map<String, dynamic>;
           Message message = Message.fromJson(map);
-          bool isEqual = message.sender! == NetworkLinks.uid;
+          bool isEqual = message.sender! == AdminData.id;
           return Align(
             alignment: isEqual ? Alignment.centerLeft : Alignment.centerRight,
             child: isEqual

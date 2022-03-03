@@ -8,7 +8,7 @@ class InfoService {
   Future<ProfileModel> getDataFromUrl() async {
     try {
       DocumentSnapshot snap =
-          await _fireStore.collection('admin').doc(NetworkLinks.uid).get();
+          await _fireStore.collection('admin').doc(AdminData.id).get();
       Map<String, dynamic> data = snap.data() as Map<String, dynamic>;
       ProfileModel profile = ProfileModel.fromJson(data);
       await _storage.write('profileData', profile.toJson());

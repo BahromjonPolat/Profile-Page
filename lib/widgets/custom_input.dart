@@ -22,7 +22,7 @@ class CustomInput extends StatelessWidget {
       hintText: AppStrings.message,
       filled: true,
       constraints: BoxConstraints(maxHeight: 150.h),
-      contentPadding: MyEdgeInsets.symmetric(h: 12.0),
+      contentPadding: MyEdgeInsets.all(12.0),
       fillColor: Colors.white,
       border: _outlineInputBorder(),
       enabledBorder: _outlineInputBorder(),

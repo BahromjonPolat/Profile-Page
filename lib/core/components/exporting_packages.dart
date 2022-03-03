@@ -13,6 +13,8 @@ export 'package:profile/core/constants/app_strings.dart';
 // Data
 export 'package:profile/core/data/network_links.dart';
 export 'package:profile/core/data/static_data.dart';
+export 'package:profile/core/admin_panel/data/admin_data.dart';
+
 
 // Widgets
 export 'package:profile/widgets/footer.dart';

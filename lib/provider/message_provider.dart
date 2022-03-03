@@ -17,7 +17,7 @@ class MessageProvider extends ChangeNotifier {
       id: _uuid.v4(),
       userId: _uid,
       sender: _uid,
-      receiver: NetworkLinks.uid,
+      receiver: AdminData.id,
       message: msg,
       isRead: false,
       sentTime: DateTime.now(),

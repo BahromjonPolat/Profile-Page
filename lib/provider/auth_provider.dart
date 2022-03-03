@@ -56,6 +56,7 @@ class AuthProvider extends ChangeNotifier {
             await storage.write('user', user.toJson());
             await FireStoreService().setUserData(user).then((value) {
               Fluttertoast.showToast(msg: 'Welcome ${user.fullName}!');
+              CustomNavigator().pushAndRemoveUntil(const MyHomePage());
             });
           });
         });
@@ -63,7 +64,7 @@ class AuthProvider extends ChangeNotifier {
         authService.login(email: email, password: password).then((value) {
           Fluttertoast.showToast(msg: value);
           if (value == 'Welcome!') {
-            CustomNavigator().pushReplacement(const MyHomePage());
+            CustomNavigator().pushAndRemoveUntil(const MyHomePage());
           }
         });
       }

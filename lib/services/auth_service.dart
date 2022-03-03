@@ -65,6 +65,7 @@ class AuthServiceMethods extends AuthService {
           message = "An undefined Error happened.";
       }
     } catch (e) {
+      message = e.toString();
       print(e);
     }
 
