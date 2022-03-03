@@ -4,9 +4,14 @@ import 'package:profile/core/components/size_config.dart';
 import 'package:profile/widgets/my_border_radius.dart';
 
 class MyDecoration {
-  static BoxDecoration circular({Color? color, double radius = 16.0}) =>
+  static BoxDecoration circular({
+    Color? color,
+    double radius = 16.0,
+    Border? border,
+  }) =>
       BoxDecoration(
         color: color,
+        border: border,
         borderRadius: BorderRadius.circular(
           getHeight(radius),
         ),
