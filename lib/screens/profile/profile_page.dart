@@ -71,11 +71,9 @@ class _UserProfilePageState extends State<UserProfilePage> {
           ),
           const Spacer(),
           CustomIconButton(
-            assetIcon: AssetIcon.send,
+            assetIcon: AppIcon.send,
             onPressed: () async {
               GetStorage s = GetStorage();
-              var data  =await s.read('user');
-              print('_UserProfilePageState._header: $data');
               // await FirebaseAuth.instance.signOut();
               // await GetStorage().remove('user');
               // CustomNavigator().pushAndRemoveUntil(const MyHomePage());

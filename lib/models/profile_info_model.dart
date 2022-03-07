@@ -8,6 +8,7 @@ class ProfileModel {
   String? _type;
   DateTime? _dateOfBirth;
   DateTime? _started;
+  DateTime? _lastAction;
   int? _experience;
   String? _bio;
   int? _projectsDone;
@@ -53,15 +54,16 @@ class ProfileModel {
 
   String get phone => _phone!;
 
-  ProfileModel.fromJson(Map<String, dynamic> json) {
+  DateTime get lastAction => _lastAction!;
 
-    _sId = json['_id'];
+  ProfileModel.fromJson(Map<String, dynamic> json) {
+    _sId = json['id'];
     _firstName = json['firstName'];
     _lastName = json['lastName'];
     _email = json['email'];
     _type = json['type'];
-    _dateOfBirth = DateTime.parse(json['dateOfBirth']);
-    _started = DateTime.parse(json['started']);
+    _dateOfBirth = json['dateOfBirth'].toDate();
+    _started = json['started'].toDate();
     _experience = json['experience'];
     _bio = json['bio'];
     _projectsDone = json['projectsDone'];
@@ -71,6 +73,7 @@ class ProfileModel {
     _imageUrl = json['imageUrl'];
     _phone = json['phone'];
     _webSite = json['webSite'];
+    _lastAction = json['lastAction'];
     _socialMedias = (json['socialMedias'] as List)
         .map((e) => SocialMedia.fromJson(e))
         .toList();
@@ -78,7 +81,7 @@ class ProfileModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['_id'] = _sId;
+    data['id'] = _sId;
     data['firstName'] = _firstName;
     data['lastName'] = _lastName;
     data['email'] = _email;
@@ -94,6 +97,7 @@ class ProfileModel {
     data['imageUrl'] = _imageUrl;
     data['phone'] = _phone;
     data['webSite'] = _webSite;
+    data['lastAction'] = _lastAction;
     return data;
   }
 }

@@ -39,7 +39,7 @@ class AuthServiceMethods extends AuthService {
           'isOnline': true,
         });
 
-        message = 'Welcome!';
+        message = 'Welcome';
 
         UserModel userModel = await _storeService.getUserById(_uid);
         await _storage.write('user', userModel.toJson());

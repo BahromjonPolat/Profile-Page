@@ -25,7 +25,7 @@ class  ProfileCircleAvatar extends StatelessWidget {
           child: ClipRRect(
             borderRadius: MyBorderRadius.circular(radius: _isDefault() ? 0.0 : 100.0),
             child:_isDefault()
-                ? SvgPicture.asset(AssetIcon.gitHub)
+                ? SvgPicture.asset(AppIcon.gitHub)
                 : CachedNetworkImage(imageUrl: imageUrl),
           ),
         ),
@@ -35,7 +35,7 @@ class  ProfileCircleAvatar extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: AppColors.secondary,
             radius: getWidth(21.43),
-            child: SvgPicture.asset(AssetIcon.edit, color: Colors.white),
+            child: SvgPicture.asset(AppIcon.edit, color: Colors.white),
           ).onClick(() {
             // ImageChooser.chooseImage();
           }),

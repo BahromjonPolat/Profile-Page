@@ -13,9 +13,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    // getData().then((value) {
-    //   setState(() {});
-    // });
+    getData().then((value) {
+      setState(() {});
+    });
   }
 
   @override

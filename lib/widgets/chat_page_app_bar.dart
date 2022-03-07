@@ -21,7 +21,7 @@ class ChatPageAppBar extends StatelessWidget with PreferredSizeWidget {
 
   CustomIconButton _buildLeading(BuildContext context) {
     return CustomIconButton(
-      assetIcon: AssetIcon.arrowBack,
+      assetIcon: AppIcon.arrowBack,
       onPressed: () {
         Navigator.pop(context);
       },

@@ -63,8 +63,8 @@ class AuthProvider extends ChangeNotifier {
       } else {
         _authService.login(email: email, password: password).then((value) {
           Fluttertoast.showToast(msg: value);
-          if (value == 'Welcome!') {
-            Fluttertoast.showToast(msg: 'Welcome!');
+          if (value == 'Welcome') {
+            Fluttertoast.showToast(msg: 'Welcome');
             CustomNavigator().pushAndRemoveUntil(const MyHomePage());
           } else {
             Fluttertoast.showToast(msg: value);

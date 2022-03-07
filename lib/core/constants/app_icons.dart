@@ -1,4 +1,4 @@
-class AssetIcon {
+class AppIcon {
   static const String facebook = 'assets/icons/facebook.svg';
   static const String twitter = 'assets/icons/twitter.svg';
   static const String linkedIn = 'assets/icons/linked_in.svg';
@@ -10,4 +10,9 @@ class AssetIcon {
   static const String edit = 'assets/icons/edit.svg';
   static const String send = 'assets/icons/send.svg';
   static const String settings = 'assets/icons/settings.svg';
+  static const String image = 'assets/icons/image.svg';
+  static const String link = 'assets/icons/link.svg';
+  static const String message = 'assets/icons/message.svg';
+  static const String personal = 'assets/icons/personal.svg';
+  static const String search = 'assets/icons/search.svg';
 }

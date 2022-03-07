@@ -21,7 +21,6 @@ class InfoService {
 
   Future<ProfileModel> getDataFromStorage() async {
     try {
-      RefreshProvider provider = RefreshProvider();
       Map<String, dynamic> profileData =
           _storage.read('profileData') ?? StaticData.staticProfile.toJson();
       ProfileModel profileModel = ProfileModel.fromJson(profileData);
