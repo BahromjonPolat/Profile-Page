@@ -4,6 +4,9 @@ import 'package:profile/core/data/device_info_model.dart';
 import 'package:profile/services/fire_store_service.dart';
 
 class AuthProvider extends ChangeNotifier {
+  final GetStorage _storage = GetStorage();
+  final AuthService _authService = AuthServiceMethods();
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -16,9 +19,6 @@ class AuthProvider extends ChangeNotifier {
   }
 
   void onPressed() {
-    GetStorage storage = GetStorage();
-    AuthService authService = AuthServiceMethods();
-
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       DeviceInfoModel device = DeviceInfoModel();
@@ -28,7 +28,7 @@ class AuthProvider extends ChangeNotifier {
       String password = _passwordController.text.trim();
 
       if (!_isLogin) {
-        authService
+        _authService
             .register(email: email, password: password)
             .whenComplete(() async {
           // set device info
@@ -53,7 +53,7 @@ class AuthProvider extends ChangeNotifier {
               lastAction: DateTime.now(),
               device: device.toReference(uid),
             );
-            await storage.write('user', user.toJson());
+
             await FireStoreService().setUserData(user).then((value) {
               Fluttertoast.showToast(msg: 'Welcome ${user.fullName}!');
               CustomNavigator().pushAndRemoveUntil(const MyHomePage());
@@ -61,10 +61,13 @@ class AuthProvider extends ChangeNotifier {
           });
         });
       } else {
-        authService.login(email: email, password: password).then((value) {
+        _authService.login(email: email, password: password).then((value) {
           Fluttertoast.showToast(msg: value);
           if (value == 'Welcome!') {
+            Fluttertoast.showToast(msg: 'Welcome!');
             CustomNavigator().pushAndRemoveUntil(const MyHomePage());
+          } else {
+            Fluttertoast.showToast(msg: value);
           }
         });
       }

@@ -1,5 +1,6 @@
 import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/services/fire_store_service.dart';
+import 'dart:developer' as developer;
 
 abstract class AuthService {
   Future register({required String email, required String password});
@@ -18,18 +19,19 @@ class AuthServiceMethods extends AuthService {
   @override
   Future getCurrentUser() async {
     String uid = _auth.currentUser!.uid;
+    Map<String, dynamic> userData = await _storage.read('user');
+    return UserModel.fromJson(userData);
   }
 
   @override
   Future<String> login(
       {required String email, required String password}) async {
-    late String message;
+    String message = 'Nothing';
     try {
       await _auth
           .signInWithEmailAndPassword(email: email, password: password)
           .whenComplete(() async {
         _uid = _auth.currentUser!.uid;
-        message = 'Welcome!';
 
         // Update user data
         await _storeService.updateUserData(_uid, data: {
@@ -37,9 +39,10 @@ class AuthServiceMethods extends AuthService {
           'isOnline': true,
         });
 
-        //
+        message = 'Welcome!';
+
         UserModel userModel = await _storeService.getUserById(_uid);
-        _storage.write('user', userModel.toJson());
+        await _storage.write('user', userModel.toJson());
       });
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
@@ -66,7 +69,7 @@ class AuthServiceMethods extends AuthService {
       }
     } catch (e) {
       message = e.toString();
-      print(e);
+      print('AuthServiceMethods.login: $e');
     }
 
     return message;

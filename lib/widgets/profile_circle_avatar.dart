@@ -4,7 +4,7 @@ import 'package:profile/widgets/my_border_radius.dart';
 class  ProfileCircleAvatar extends StatelessWidget {
   final String imageUrl;
 
-  ProfileCircleAvatar({
+  const ProfileCircleAvatar({
     Key? key,
     required this.imageUrl,
   }) : super(key: key);
@@ -18,7 +18,7 @@ class  ProfileCircleAvatar extends StatelessWidget {
           height: getHeight(100.0),
           padding: _isDefault() ? EdgeInsets.all(24.w) : EdgeInsets.zero,
           decoration: MyDecoration.circular(
-            border: Border.all(color: AppColors.primary, width: getWidth(2)),
+            border: Border.all(color: AppColors.secondary, width: getWidth(2)),
             color: Colors.transparent,
             radius: 100.0,
           ),
@@ -33,9 +33,9 @@ class  ProfileCircleAvatar extends StatelessWidget {
           bottom: 0.0,
           right: 0.0,
           child: CircleAvatar(
-            backgroundColor: AppColors.primary,
+            backgroundColor: AppColors.secondary,
             radius: getWidth(21.43),
-            child: SvgPicture.asset(AssetIcon.edit),
+            child: SvgPicture.asset(AssetIcon.edit, color: Colors.white),
           ).onClick(() {
             // ImageChooser.chooseImage();
           }),

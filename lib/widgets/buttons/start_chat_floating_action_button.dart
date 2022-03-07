@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:profile/core/admin_panel/screens/admin_panel_page.dart';
 import 'package:profile/core/components/exporting_packages.dart';
+import 'dart:developer' as developer;
 
 class StartChatButton extends StatelessWidget {
   const StartChatButton({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class StartChatButton extends StatelessWidget {
 
   void _onPressed() {
     User? user = FirebaseAuth.instance.currentUser;
+
     if (user != null) {
       if (user.uid == AdminData.id) {
         CustomNavigator().push(const AdminPanelPage());
