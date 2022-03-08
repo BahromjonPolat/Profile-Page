@@ -12,9 +12,15 @@ class AuthProvider extends ChangeNotifier {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   bool _isLogin = true;
+  bool _isLoading = false;
 
   void changePage() {
     _isLogin = !_isLogin;
+    notifyListeners();
+  }
+
+  void showLoading() {
+    _isLoading = !_isLoading;
     notifyListeners();
   }
 
@@ -26,6 +32,8 @@ class AuthProvider extends ChangeNotifier {
       String fullName = _nameController.text.trim();
       String email = _emailController.text.trim().toLowerCase();
       String password = _passwordController.text.trim();
+
+      showLoading();
 
       if (!_isLogin) {
         _authService
@@ -55,6 +63,7 @@ class AuthProvider extends ChangeNotifier {
             );
 
             await FireStoreService().setUserData(user).then((value) {
+              showLoading();
               Fluttertoast.showToast(msg: 'Welcome ${user.fullName}!');
               CustomNavigator().pushAndRemoveUntil(const MyHomePage());
             });
@@ -64,9 +73,11 @@ class AuthProvider extends ChangeNotifier {
         _authService.login(email: email, password: password).then((value) {
           Fluttertoast.showToast(msg: value);
           if (value == 'Welcome') {
+            showLoading();
             Fluttertoast.showToast(msg: 'Welcome');
             CustomNavigator().pushAndRemoveUntil(const MyHomePage());
           } else {
+            showLoading();
             Fluttertoast.showToast(msg: value);
           }
         });
@@ -83,4 +94,6 @@ class AuthProvider extends ChangeNotifier {
   GlobalKey<FormState> get formKey => _formKey;
 
   bool get isLogin => _isLogin;
+
+  bool get isLoading => _isLoading;
 }

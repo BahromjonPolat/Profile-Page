@@ -34,8 +34,8 @@ class ChatPageAppBar extends StatelessWidget with PreferredSizeWidget {
       child: CircleAvatar(
         backgroundImage: NetworkImage(StaticData.staticProfile.imageUrl),
       ).onClick(() async {
-        // await FirebaseAuth.instance.signOut();
-        CustomNavigator().push(const UserProfilePage());
+        await FirebaseAuth.instance.signOut();
+        // CustomNavigator().push(const UserProfilePage());
       }),
     );
   }
@@ -46,7 +46,7 @@ class ChatPageAppBar extends StatelessWidget with PreferredSizeWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MyText(
-          StaticData.staticProfile.firstName,
+          '${StaticData.staticProfile.firstName} ${StaticData.staticProfile.lastName}',
           size: 16.0,
           weight: FontWeight.w600,
         ),
@@ -61,7 +61,7 @@ class ChatPageAppBar extends StatelessWidget with PreferredSizeWidget {
   String _showLastTime(DateTime dateTime) {
     DateFormat format = DateFormat('MMM, dd');
     String formatted = format.format(dateTime);
-    return 'Last seen at $formatted';
+    return 'Last seen at recently';
   }
 
   @override

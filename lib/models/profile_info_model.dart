@@ -73,7 +73,7 @@ class ProfileModel {
     _imageUrl = json['imageUrl'];
     _phone = json['phone'];
     _webSite = json['webSite'];
-    _lastAction = json['lastAction'];
+    _lastAction = json['lastAction'].toDate();
     _socialMedias = (json['socialMedias'] as List)
         .map((e) => SocialMedia.fromJson(e))
         .toList();
@@ -98,6 +98,27 @@ class ProfileModel {
     data['phone'] = _phone;
     data['webSite'] = _webSite;
     data['lastAction'] = _lastAction;
+    return data;
+  }
+  Map<String, dynamic> toStorage() {
+    final Map<String, dynamic> data = {};
+    data['id'] = _sId;
+    data['firstName'] = _firstName;
+    data['lastName'] = _lastName;
+    data['email'] = _email;
+    data['type'] = _type;
+    // data['dateOfBirth'] = _dateOfBirth;
+    // data['started'] = _started;
+    data['experience'] = _experience;
+    data['bio'] = _bio;
+    data['projectsDone'] = _projectsDone;
+    data['successRate'] = _successRate;
+    data['teams'] = _teams;
+    data['clientReports'] = _clientReports;
+    data['imageUrl'] = _imageUrl;
+    data['phone'] = _phone;
+    data['webSite'] = _webSite;
+    // data['lastAction'] = _lastAction;
     return data;
   }
 }

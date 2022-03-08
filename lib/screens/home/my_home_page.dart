@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> getData() async {
     InfoService service = InfoService();
-    service.getDataFromUrl();
-    service.getDataFromStorage();
+    await service.getDataFromUrl();
+    await service.getDataFromStorage();
   }
 }

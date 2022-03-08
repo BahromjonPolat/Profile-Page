@@ -5,10 +5,14 @@ class MessageService {
   final FirebaseFirestore _fireStore = FirebaseFirestore.instance;
 
   Future sendMessage(Message message) async {
-    await _fireStore
-        .collection('messages')
-        .doc(message.id)
-        .set(message.toJson());
+   try {
+     await _fireStore
+         .collection('messages')
+         .doc(message.id)
+         .set(message.toJson());
+   } catch(err) {
+
+   }
   }
 
   Stream<QuerySnapshot> getMessage() => _fireStore

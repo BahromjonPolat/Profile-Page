@@ -88,4 +88,18 @@ class UserModel {
     map['device'] = _device;
     return map;
   }
+  Map<String, dynamic> toStorage() {
+    final map = <String, dynamic>{};
+    map['fullName'] = _fullName;
+    map['email'] = _email;
+    map['password'] = _password;
+    map['firstTime'] = _firstTime.toString();
+    map['lastAction'] = _lastAction.toString();
+    map['id'] = _id;
+    map['phone'] = _phone;
+    map['imgUrl'] = _imgUrl;
+    map['isOnline'] = _isOnline;
+    map['device'] = _device;
+    return map;
+  }
 }

@@ -3,6 +3,8 @@ import 'package:profile/core/components/exporting_packages.dart';
 import 'dart:async';
 import 'dart:developer' as developer;
 
+import 'package:profile/screens/test/firebase_test.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

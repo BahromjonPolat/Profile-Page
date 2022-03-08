@@ -16,7 +16,13 @@ class MessageWritingLayout extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              CustomIconButton(onPressed: () {}, assetIcon: AppIcon.emoticon),
+              CustomIconButton(
+                onPressed: () {
+                  Fluttertoast.showToast(msg: 'Soon');
+                },
+                assetIcon: AppIcon.image,
+                color: AppColors.text,
+              ),
               _buildSizedBox(),
               Expanded(
                 child: CustomInput(controller: provider.messageController),
@@ -27,7 +33,7 @@ class MessageWritingLayout extends StatelessWidget {
                 mini: true,
                 elevation: 0.0,
                 backgroundColor: AppColors.secondary,
-                child:  SvgPicture.asset(AppIcon.send, color: Colors.white),
+                child: SvgPicture.asset(AppIcon.send, color: Colors.white),
               ),
             ],
           ),

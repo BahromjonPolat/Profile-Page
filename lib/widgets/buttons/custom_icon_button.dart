@@ -5,11 +5,12 @@ class CustomIconButton extends StatelessWidget {
   VoidCallback onPressed;
   String assetIcon;
   double vPadding;
-
+  Color? color;
   CustomIconButton({
     required this.onPressed,
     required this.assetIcon,
     this.vPadding = 0.0,
+    this.color,
     Key? key,
   }) : super(key: key);
 
@@ -19,7 +20,7 @@ class CustomIconButton extends StatelessWidget {
       onPressed: onPressed,
       padding: MyEdgeInsets.symmetric(v: vPadding),
       // constraints: const BoxConstraints(),
-      icon: SvgPicture.asset(assetIcon),
+      icon: SvgPicture.asset(assetIcon, color: color),
     );
   }
 }
