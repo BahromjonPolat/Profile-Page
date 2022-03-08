@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/widgets/my_border_radius.dart';
-class  ProfileCircleAvatar extends StatelessWidget {
+import 'package:profile/widgets/components/my_border_radius.dart';
+
+class ProfileCircleAvatar extends StatelessWidget {
   final String imageUrl;
 
-  const ProfileCircleAvatar({
-    Key? key,
-    required this.imageUrl,
-  }) : super(key: key);
+  const ProfileCircleAvatar({Key? key, required this.imageUrl})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +22,9 @@ class  ProfileCircleAvatar extends StatelessWidget {
             radius: 100.0,
           ),
           child: ClipRRect(
-            borderRadius: MyBorderRadius.circular(radius: _isDefault() ? 0.0 : 100.0),
-            child:_isDefault()
+            borderRadius:
+                MyBorderRadius.circular(radius: _isDefault() ? 0.0 : 100.0),
+            child: _isDefault()
                 ? SvgPicture.asset(AppIcon.personal)
                 : CachedNetworkImage(imageUrl: imageUrl),
           ),
@@ -35,7 +35,7 @@ class  ProfileCircleAvatar extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: AppColors.secondary,
             radius: getWidth(21.43),
-            child: SvgPicture.asset(AppIcon.edit, color: Colors.white),
+            child: SvgPicture.asset(AppIcon.image),
           ).onClick(() {
             // ImageChooser.chooseImage();
           }),
@@ -43,5 +43,6 @@ class  ProfileCircleAvatar extends StatelessWidget {
       ],
     );
   }
-  bool _isDefault() => imageUrl=='default';
+
+  bool _isDefault() => imageUrl == 'default';
 }

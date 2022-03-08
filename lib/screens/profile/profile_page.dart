@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/provider/user_profile_provider.dart';
 import 'package:profile/services/fire_store_service.dart';
-import 'package:profile/widgets/buttons/primary_button.dart';
 import 'package:profile/widgets/dialogs/exit_alert_dialog.dart';
+import 'package:profile/widgets/inputs/edit_profile_input.dart';
 import 'package:profile/widgets/profile_circle_avatar.dart';
 
 class UserProfilePage extends StatefulWidget {
@@ -50,6 +50,14 @@ class _UserProfilePageState extends State<UserProfilePage> {
         child: Column(
           children: [
             _header(),
+            Form(child: Column(
+              children: [
+                EditProfileInput(
+                  controller: TextEditingController(),
+                  assetIcon: AppIcon.personal,
+                ),
+              ],
+            ))
           ],
         ),
       ),
@@ -73,7 +81,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
           ),
           const Spacer(),
           CustomIconButton(
-            assetIcon: AppIcon.send,
+            assetIcon: AppIcon.logout,
             onPressed: _onLogoutButtonPressed,
           )
         ],

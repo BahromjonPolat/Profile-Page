@@ -17,9 +17,7 @@ class MessageWritingLayout extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               CustomIconButton(
-                onPressed: () {
-                  Fluttertoast.showToast(msg: 'Soon');
-                },
+                onPressed: () => Fluttertoast.showToast(msg: 'Soon'),
                 assetIcon: AppIcon.image,
                 color: AppColors.text,
               ),
@@ -28,17 +26,21 @@ class MessageWritingLayout extends StatelessWidget {
                 child: CustomInput(controller: provider.messageController),
               ),
               _buildSizedBox(),
-              FloatingActionButton(
-                onPressed: provider.sendMessage,
-                mini: true,
-                elevation: 0.0,
-                backgroundColor: AppColors.secondary,
-                child: SvgPicture.asset(AppIcon.send, color: Colors.white),
-              ),
+              _buildFloatingActionButton(provider),
             ],
           ),
         );
       },
+    );
+  }
+
+  FloatingActionButton _buildFloatingActionButton(MessageProvider provider) {
+    return FloatingActionButton(
+      onPressed: provider.sendMessage,
+      mini: true,
+      elevation: 0.0,
+      backgroundColor: AppColors.secondary,
+      child: SvgPicture.asset(AppIcon.send, color: Colors.white),
     );
   }
 

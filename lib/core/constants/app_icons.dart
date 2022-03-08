@@ -15,4 +15,7 @@ class AppIcon {
   static const String message = 'assets/icons/message.svg';
   static const String personal = 'assets/icons/personal.svg';
   static const String search = 'assets/icons/search.svg';
+  static const String share = 'assets/icons/share.svg';
+  static const String forward = 'assets/icons/forward.svg';
+  static const String logout = 'assets/icons/logout.svg';
 }

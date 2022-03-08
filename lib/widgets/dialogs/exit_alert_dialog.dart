@@ -8,6 +8,7 @@ class ExitAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      // TODO: Titleni AppStringa qo'shish kerak!
       title: const Text('Are you really want to exit?'),
       content: Row(
         children: [

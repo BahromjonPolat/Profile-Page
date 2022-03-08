@@ -17,19 +17,19 @@ export 'package:profile/core/admin_panel/data/admin_data.dart';
 
 
 // Widgets
-export 'package:profile/widgets/footer.dart';
-export 'package:profile/widgets/header_info.dart';
+export 'package:profile/widgets/main/footer.dart';
+export 'package:profile/widgets/main/header_info.dart';
 export 'package:profile/widgets/my_text_widget.dart';
-export 'package:profile/widgets/tab_bar.dart';
-export 'package:profile/widgets/my_edge_insets.dart';
-export 'package:profile/widgets/my_text_button.dart';
+export 'package:profile/widgets/main/tab_bar.dart';
+export 'package:profile/widgets/components/my_edge_insets.dart';
+export 'package:profile/widgets/buttons/my_text_button.dart';
 export 'package:profile/widgets/chat_page_app_bar.dart';
-export 'package:profile/widgets/custom_input.dart';
+export 'package:profile/widgets/inputs/custom_input.dart';
 export 'package:profile/widgets/buttons/custom_icon_button.dart';
-export 'package:profile/widgets/message_writing_layout.dart';
+export 'package:profile/widgets/inputs/message_writing_layout.dart';
 export 'package:profile/widgets/nine_patch.dart';
 
-export 'package:profile/widgets/my_box_constraints.dart';
+export 'package:profile/widgets/components/my_box_constraints.dart';
 
 // Components
 export 'package:profile/core/components/custom_navigator.dart';
@@ -47,7 +47,7 @@ export 'package:flutter_svg/flutter_svg.dart';
 export 'package:http/http.dart';
 export 'package:intl/intl.dart';
 export 'package:profile/models/profile_info_model.dart';
-export 'package:profile/widgets/my_decoration.dart';
+export 'package:profile/widgets/components/my_decoration.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:on_click/on_click.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';

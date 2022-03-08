@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
 class CustomInput extends StatelessWidget {
-  TextEditingController? controller;
-   CustomInput({Key? key, this.controller}) : super(key: key);
+  final TextEditingController controller;
+
+  const CustomInput({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return TextField(
       controller: controller,
       textInputAction: TextInputAction.newline,

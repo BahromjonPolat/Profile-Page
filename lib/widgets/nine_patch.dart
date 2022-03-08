@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/widgets/my_border_radius.dart';
+import 'package:profile/widgets/components/my_border_radius.dart';
 
 class NinePatch {
   static Container right(String message) => Container(
