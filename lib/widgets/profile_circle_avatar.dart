@@ -25,7 +25,7 @@ class  ProfileCircleAvatar extends StatelessWidget {
           child: ClipRRect(
             borderRadius: MyBorderRadius.circular(radius: _isDefault() ? 0.0 : 100.0),
             child:_isDefault()
-                ? SvgPicture.asset(AppIcon.gitHub)
+                ? SvgPicture.asset(AppIcon.personal)
                 : CachedNetworkImage(imageUrl: imageUrl),
           ),
         ),

@@ -19,8 +19,8 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void showLoading() {
-    _isLoading = !_isLoading;
+  void showLoading(bool value) {
+    _isLoading = value;
     notifyListeners();
   }
 
@@ -33,7 +33,7 @@ class AuthProvider extends ChangeNotifier {
       String email = _emailController.text.trim().toLowerCase();
       String password = _passwordController.text.trim();
 
-      showLoading();
+      showLoading(true);
 
       if (!_isLogin) {
         _authService
@@ -62,22 +62,25 @@ class AuthProvider extends ChangeNotifier {
               device: device.toReference(uid),
             );
 
-            await FireStoreService().setUserData(user).then((value) {
-              showLoading();
+            await FireStoreService().setUserData(user).then((value) async {
+              showLoading(false);
+              await _storage.write('user', user.toStorage());
               Fluttertoast.showToast(msg: 'Welcome ${user.fullName}!');
               CustomNavigator().pushAndRemoveUntil(const MyHomePage());
             });
           });
         });
       } else {
+
+        // Login
         _authService.login(email: email, password: password).then((value) {
           Fluttertoast.showToast(msg: value);
           if (value == 'Welcome') {
-            showLoading();
+            showLoading(false);
             Fluttertoast.showToast(msg: 'Welcome');
             CustomNavigator().pushAndRemoveUntil(const MyHomePage());
           } else {
-            showLoading();
+            showLoading(false);
             Fluttertoast.showToast(msg: value);
           }
         });
