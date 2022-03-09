@@ -11,6 +11,7 @@ class UserModel {
   String? _password;
   DateTime? _firstTime;
   DateTime? _lastAction;
+  DateTime? _dateOfBirth;
   String? _id;
   String? _phone;
   String? _imgUrl;
@@ -23,6 +24,7 @@ class UserModel {
     String? password,
     DateTime? firstTime,
     DateTime? lastAction,
+    DateTime? dateOfBirth,
     String? id,
     String? phone,
     String? imgUrl,
@@ -34,6 +36,7 @@ class UserModel {
     _password = password;
     _firstTime = firstTime;
     _lastAction = lastAction;
+    _dateOfBirth = dateOfBirth;
     _id = id;
     _phone = phone;
     _imgUrl = imgUrl;
@@ -47,6 +50,7 @@ class UserModel {
     _password = json['password'];
     _firstTime = json['firstTime'].toDate();
     _lastAction = json['lastAction'].toDate();
+    _dateOfBirth = json['dateOfBirth'].toDate();
     _id = json['id'];
     _phone = json['phone'];
     _imgUrl = json['imgUrl'];
@@ -74,6 +78,9 @@ class UserModel {
 
   DeviceInfoModel get device => _device!;
 
+
+  DateTime? get dateOfBirth => _dateOfBirth;
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['fullName'] = _fullName;
@@ -81,6 +88,7 @@ class UserModel {
     map['password'] = _password;
     map['firstTime'] = _firstTime;
     map['lastAction'] = _lastAction;
+    map['dateOfBirth'] = _dateOfBirth;
     map['id'] = _id;
     map['phone'] = _phone;
     map['imgUrl'] = _imgUrl;

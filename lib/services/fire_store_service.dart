@@ -40,7 +40,7 @@ class FireStoreService {
     return UserModel();
   }
 
-  Future<void> updateUserData(String uid,
+  Future updateUserData(String uid,
       {required Map<String, dynamic> data}) async {
     return await _fireStore.collection('users').doc(uid).update(data);
   }

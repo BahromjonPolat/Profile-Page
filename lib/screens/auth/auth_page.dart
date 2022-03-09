@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
-import 'package:profile/provider/auth_provider.dart';
 import 'package:profile/screens/auth/login_page.dart';
 import 'package:profile/screens/auth/register_page.dart';
 import 'package:profile/widgets/buttons/primary_button.dart';
@@ -45,7 +44,9 @@ class AuthPage extends StatelessWidget {
                       SizedBox(height: 24.h),
                       TextButton(
                         onPressed: provider.changePage,
-                        child: Text(AppStrings.signIn),
+                        child: Text(provider.isLoading
+                            ? AppStrings.signUp
+                            : AppStrings.signIn),
                       )
                     ],
                   ).sp(h: 20.w),

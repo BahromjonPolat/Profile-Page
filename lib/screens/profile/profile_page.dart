@@ -5,6 +5,7 @@ import 'package:profile/provider/user_profile_provider.dart';
 import 'package:profile/services/fire_store_service.dart';
 import 'package:profile/widgets/dialogs/exit_alert_dialog.dart';
 import 'package:profile/widgets/inputs/edit_profile_input.dart';
+import 'package:profile/widgets/loading_widget.dart';
 import 'package:profile/widgets/profile_circle_avatar.dart';
 
 class UserProfilePage extends StatefulWidget {
@@ -19,6 +20,12 @@ class _UserProfilePageState extends State<UserProfilePage> {
   final String _uid = FirebaseAuth.instance.currentUser!.uid;
   bool _isLoading = true;
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -26,40 +33,68 @@ class _UserProfilePageState extends State<UserProfilePage> {
       _user = value;
       setState(() {
         _isLoading = false;
+        _emailController.text = _user.email!;
+        _passwordController.text = _user.password!;
+        _fullNameController.text = _user.fullName!;
+        _phoneController.text = _user.phone!;
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: _isLoading ? const LoadingWidget() : _buildBody(),
+    );
+  }
+
+  ListenableProvider<UserProfileProvider> _buildListenableProvider() {
     return ListenableProvider(
-      create: (_) => UserProfileProvider(),
+      create: (_) => UserProfileProvider(user: _user),
       builder: (ctx, w) {
+        UserProfileProvider provider = ctx.watch();
         return Scaffold(
           body: _isLoading
               ? const Center(child: CupertinoActivityIndicator())
-              : _buildSafeArea(),
+              : _buildBody(),
         );
       },
     );
   }
 
-  SafeArea _buildSafeArea() {
+  SafeArea _buildBody() {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
           children: [
             _header(),
-            Form(child: Column(
-              children: [
-                EditProfileInput(
-                  controller: TextEditingController(),
-                  assetIcon: AppIcon.personal,
-                ),
-              ],
-            ))
+            _showFormFields(),
           ],
         ),
+      ),
+    );
+  }
+
+  Form _showFormFields() {
+    return Form(
+      child: Column(
+        children: [
+          EditProfileInput(
+            controller: _fullNameController,
+            assetIcon: AppIcon.personal,
+            label: AppStrings.fullName,
+          ),
+          EditProfileInput(
+            controller: _emailController,
+            assetIcon: AppIcon.link,
+            label: AppStrings.email,
+          ),
+          EditProfileInput(
+            controller: _fullNameController,
+            assetIcon: AppIcon.personal,
+            label: AppStrings.fullName,
+          ),
+        ],
       ),
     );
   }

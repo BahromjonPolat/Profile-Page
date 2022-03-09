@@ -12,9 +12,7 @@ class InfoService {
           await _fireStore.collection('admin').doc(AdminData.id).get();
       Map<String, dynamic> data = snap.data() as Map<String, dynamic>;
       ProfileModel profile = ProfileModel.fromJson(data);
-      // print('InfoService.getDataFromUrl: UP');
-      // await _storage.write('profileData', jsonEncode(data));
-      // print('InfoService.getDataFromUrl');
+      await _storage.write('profileData', profile.toJson());
       StaticData.staticProfile = profile;
       return profile;
     } catch (err) {
@@ -25,7 +23,8 @@ class InfoService {
   Future<ProfileModel> getDataFromStorage() async {
     try {
       Map<String, dynamic> profileData =
-         jsonDecode(_storage.read('profileData')) ?? StaticData.staticProfile.toJson();
+          jsonDecode(_storage.read('profileData')) ??
+              StaticData.staticProfile.toJson();
       ProfileModel profileModel = ProfileModel.fromJson(profileData);
       return profileModel;
     } catch (err) {

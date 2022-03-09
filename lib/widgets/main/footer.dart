@@ -48,7 +48,11 @@ class FooterInfo extends StatelessWidget {
           children: [
             _setTitle(AppStrings.bio),
             SizedBox(height: getHeight(10.0)),
-            MyText(_profile.bio, lines: 10, color: AppColors.lightGrey),
+            MyText(
+              AppStrings.locale == 'uz' ? _profile.bioUz : _profile.bio,
+              lines: 10,
+              color: AppColors.lightGrey,
+            ),
           ],
         ),
       );
@@ -107,7 +111,8 @@ class FooterInfo extends StatelessWidget {
   Row _setData(String title, String data) => Row(
         children: [
           Expanded(child: _setTitle(title)),
-          Expanded(child: MyText(data, size: 17.0).onClick(() {
+          Expanded(
+              child: MyText(data, size: 17.0).onClick(() {
             _onButtonPressed(data);
           })),
         ],

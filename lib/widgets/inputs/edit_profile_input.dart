@@ -4,11 +4,12 @@ import 'package:profile/core/components/exporting_packages.dart';
 class EditProfileInput extends StatelessWidget {
   final TextEditingController controller;
   final String assetIcon;
-
+  final String label;
   const EditProfileInput({
     Key? key,
     required this.controller,
     required this.assetIcon,
+    required this.label,
   }) : super(key: key);
 
   @override
@@ -18,6 +19,7 @@ class EditProfileInput extends StatelessWidget {
         TextFormField(
           controller: controller,
           decoration: InputDecoration(
+            label: Text(label),
             filled: false,
             border: _buildOutlineInputBorder(),
             prefixIcon: SvgPicture.asset(

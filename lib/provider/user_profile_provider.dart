@@ -2,21 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 
 class UserProfileProvider extends ChangeNotifier {
-  final UserModel _user = UserModel.fromJson(GetStorage().read('user'));
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  late TextEditingController _emailController;
-  late TextEditingController _passwordController;
-  late TextEditingController _nameController;
-  late TextEditingController _phoneController;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
 
   bool _isEdit = false;
 
-  UserProfileProvider() {
-    _emailController = TextEditingController(text: _user.email);
-    _passwordController = TextEditingController();
-    _nameController = TextEditingController(text: _user.fullName);
-    _phoneController = TextEditingController(text: _user.phone ?? '');
+  UserProfileProvider({required UserModel user}) {
+    // _emailController.text = user.email!;
+    // _passwordController.text = user.password!;
+    // _fullNameController.text = user.fullName!;
+    // _phoneController.text = user.phone!;
   }
 
   void changeStatus() {
@@ -24,11 +22,20 @@ class UserProfileProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void onUpdateButtonPressed() async {
+    if (_formKey.currentState!.validate()) {
+      String fullName = _fullNameController.text.trim();
+      String email = _emailController.text.trim().toLowerCase();
+      // String password = _passwordController.text.trim();
+
+    }
+  }
+
   bool get isEdit => _isEdit;
 
   TextEditingController get phoneController => _phoneController;
 
-  TextEditingController get nameController => _nameController;
+  TextEditingController get fullNameController => _fullNameController;
 
   TextEditingController get passwordController => _passwordController;
 

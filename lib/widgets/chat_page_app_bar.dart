@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/core/components/exporting_packages.dart';
 import 'package:profile/screens/profile/profile_page.dart';
+import 'package:profile/widgets/dialogs/exit_alert_dialog.dart';
 
 class ChatPageAppBar extends StatelessWidget with PreferredSizeWidget {
   const ChatPageAppBar({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class ChatPageAppBar extends StatelessWidget with PreferredSizeWidget {
           _buildLeading(context),
           _buildTitle(),
           const Spacer(),
-          _showUserProfile(),
+          _showUserProfile(context),
         ],
       ),
     );
@@ -28,13 +29,14 @@ class ChatPageAppBar extends StatelessWidget with PreferredSizeWidget {
     );
   }
 
-  Widget _showUserProfile() {
+  Widget _showUserProfile(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 16.w),
       child: CircleAvatar(
-        backgroundImage: NetworkImage(StaticData.staticProfile.imageUrl),
+        child: SvgPicture.asset(AppIcon.logout),
+        // backgroundImage: NetworkImage(StaticData.staticProfile.imageUrl),
       ).onClick(() async {
-        CustomNavigator().push(const UserProfilePage());
+        showDialog(context: context, builder: (_) => const ExitAlertDialog());
       }),
     );
   }
