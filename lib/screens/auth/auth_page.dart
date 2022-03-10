@@ -44,7 +44,7 @@ class AuthPage extends StatelessWidget {
                       SizedBox(height: 24.h),
                       TextButton(
                         onPressed: provider.changePage,
-                        child: Text(provider.isLoading
+                        child: Text(provider.isLogin
                             ? AppStrings.signUp
                             : AppStrings.signIn),
                       )

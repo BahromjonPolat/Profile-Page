@@ -25,8 +25,8 @@ class FooterInfo extends StatelessWidget {
   Padding _showWorks() => Padding(
         padding: EdgeInsets.symmetric(vertical: getHeight(21.0)),
         child: Wrap(
-          spacing: getWidth(19.0),
-          runSpacing: getHeight(19.0),
+          spacing: 19.w,
+          runSpacing: 19.h,
           children: [
             _setWorkInfo(AppStrings.projectsDone, '${_profile.projectsDone}'),
             _setWorkInfo(AppStrings.successRate, '${_profile.successRate}%'),
@@ -39,7 +39,7 @@ class FooterInfo extends StatelessWidget {
   Container _setBio() => Container(
         width: double.infinity,
         margin: EdgeInsets.symmetric(
-          vertical: getHeight(19.0),
+          vertical: 19.h,
         ),
         padding: _setContentPadding(),
         decoration: _boxDecoration(),
@@ -47,7 +47,7 @@ class FooterInfo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _setTitle(AppStrings.bio),
-            SizedBox(height: getHeight(10.0)),
+            SizedBox(height: 10.h),
             MyText(
               AppStrings.locale == 'uz' ? _profile.bioUz : _profile.bio,
               lines: 10,
@@ -64,13 +64,13 @@ class FooterInfo extends StatelessWidget {
   BoxDecoration _boxDecoration() {
     return BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(getWidth(14.0)));
+        borderRadius: BorderRadius.circular(14.r));
   }
 
   // On the web
   Container _showOnTheWeb() => Container(
         decoration: _boxDecoration(),
-        height: getHeight(91.0),
+        height: 91.h,
         width: double.infinity,
         padding: _setContentPadding(),
         child: Column(
@@ -79,12 +79,12 @@ class FooterInfo extends StatelessWidget {
             _setTitle(AppStrings.onTheWeb),
             SizedBox(height: getHeight(10.0)),
             Wrap(
-              spacing: getWidth(19.0),
+              spacing: 19.w,
               children: StaticData.staticProfile.socialMedias
                   .map(
                     (socialMedia) => SvgPicture.asset(
                       IconWithKey.icon(socialMedia.title),
-                      height: getHeight(32.0),
+                      height: 32.h,
                     ).onClick(() {
                       _onButtonPressed(socialMedia.url);
                     }),
@@ -98,7 +98,7 @@ class FooterInfo extends StatelessWidget {
   Container _showContactInfo() => Container(
         padding: _setContentPadding(),
         decoration: _boxDecoration(),
-        margin: EdgeInsets.only(top: getHeight(19.0)),
+        margin: EdgeInsets.only(top: 19.h),
         child: Column(
           children: [
             _setData(AppStrings.website, _profile.webSite),
@@ -120,15 +120,15 @@ class FooterInfo extends StatelessWidget {
 
   EdgeInsets _setContentPadding() {
     return EdgeInsets.symmetric(
-      vertical: getHeight(15.0),
-      horizontal: getWidth(16.0),
+      vertical: 15.h,
+      horizontal: 16.w,
     );
   }
 
   // Work info
   Container _setWorkInfo(String title, String data) => Container(
-        width: getWidth(158.0),
-        height: getHeight(183.0),
+        width: 158.w,
+        height: 183.h,
         decoration: _boxDecoration(),
         padding: _setContentPadding(),
         alignment: Alignment.center,

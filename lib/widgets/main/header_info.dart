@@ -12,7 +12,7 @@ class HeaderInfo extends StatelessWidget {
     return Container(
       decoration: MyDecoration.circular(color: Colors.white, radius: 20.0),
       padding: MyEdgeInsets.all(10.0),
-      height: getHeight(250.0),
+      height: 250.h,
       child: _isCurrent() ? _showWorkHeader() : _showAboutHeader(),
     );
   }
@@ -21,7 +21,7 @@ class HeaderInfo extends StatelessWidget {
     return Row(
       children: [
         _setProfileImage(),
-        SizedBox(width: getWidth(10.0)),
+        SizedBox(width: 10.h),
         _setRightSideInfo(),
       ],
     );
@@ -31,7 +31,7 @@ class HeaderInfo extends StatelessWidget {
     return Row(
       children: [
         _setLeftSideInfo(),
-        SizedBox(width: getWidth(10.0)),
+        SizedBox(width: 10.h),
         _setProfileImage(),
       ],
     );
@@ -81,8 +81,8 @@ class HeaderInfo extends StatelessWidget {
         borderRadius: _setBorderRadius(),
         child: CachedNetworkImage(
           imageUrl: _profile.imageUrl,
-          height: getHeight(229.0),
-          width: getWidth(154.0),
+          height: 229.h,
+          width: 154.w,
           fit: BoxFit.cover,
         ),
       );

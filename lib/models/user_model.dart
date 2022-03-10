@@ -50,7 +50,9 @@ class UserModel {
     _password = json['password'];
     _firstTime = json['firstTime'].toDate();
     _lastAction = json['lastAction'].toDate();
-    _dateOfBirth = json['dateOfBirth'].toDate();
+    _dateOfBirth =
+        // ignore: prefer_null_aware_operators
+        json['dateOfBirth'] != null ? json['dateOfBirth'].toDate() : null;
     _id = json['id'];
     _phone = json['phone'];
     _imgUrl = json['imgUrl'];
@@ -78,7 +80,6 @@ class UserModel {
 
   DeviceInfoModel get device => _device!;
 
-
   DateTime? get dateOfBirth => _dateOfBirth;
 
   Map<String, dynamic> toJson() {
@@ -96,6 +97,7 @@ class UserModel {
     map['device'] = _device;
     return map;
   }
+
   Map<String, dynamic> toStorage() {
     final map = <String, dynamic>{};
     map['fullName'] = _fullName;
@@ -103,6 +105,7 @@ class UserModel {
     map['password'] = _password;
     map['firstTime'] = _firstTime.toString();
     map['lastAction'] = _lastAction.toString();
+    map['dateOfBirth'] = _dateOfBirth.toString();
     map['id'] = _id;
     map['phone'] = _phone;
     map['imgUrl'] = _imgUrl;
