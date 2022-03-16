@@ -33,7 +33,7 @@ class RegisterPage extends StatelessWidget {
         SizedBox(height: 12.h),
         TextFormField(
           controller: provider.passwordController,
-          validator: FormValidator.password,
+          validator: FormValidator.general,
           keyboardType: TextInputType.visiblePassword,
           textInputAction: TextInputAction.done,
           obscureText: true,

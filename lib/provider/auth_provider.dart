@@ -38,40 +38,44 @@ class AuthProvider extends ChangeNotifier {
       if (!_isLogin) {
         _authService
             .register(email: email, password: password)
-            .whenComplete(() async {
-          // set device info
-          String uid = FirebaseAuth.instance.currentUser!.uid;
-          Map<String, dynamic> deviceInfo = await device.readAndroidBuildData();
-          FirebaseFirestore.instance
-              .collection('device_info')
-              .doc(uid)
-              .set(deviceInfo)
-              .whenComplete(() async {
-            // Set User data
+            .then((value) async {
+          if (value != null) {
+            // set device info
             String uid = FirebaseAuth.instance.currentUser!.uid;
-            UserModel user = UserModel(
-              id: uid,
-              fullName: fullName,
-              email: email,
-              password: password,
-              isOnline: false,
-              phone: 'null',
-              imgUrl: 'default',
-              firstTime: DateTime.now(),
-              lastAction: DateTime.now(),
-              device: device.toReference(uid),
-            );
+            Map<String, dynamic> deviceInfo =
+                await device.readAndroidBuildData();
+            FirebaseFirestore.instance
+                .collection('device_info')
+                .doc(uid)
+                .set(deviceInfo)
+                .whenComplete(() async {
+              // Set User data
+              String uid = FirebaseAuth.instance.currentUser!.uid;
+              UserModel user = UserModel(
+                id: uid,
+                fullName: fullName,
+                email: email,
+                password: password,
+                isOnline: false,
+                phone: 'null',
+                imgUrl: 'default',
+                firstTime: DateTime.now(),
+                lastAction: DateTime.now(),
+                device: device.toReference(uid),
+              );
 
-            await FireStoreService().setUserData(user).then((value) async {
-              showLoading(false);
-              await _storage.write('user', user.toStorage());
-              Fluttertoast.showToast(msg: 'Welcome ${user.fullName}!');
-              CustomNavigator().pushAndRemoveUntil(const MyHomePage());
+              await FireStoreService().setUserData(user).then((value) async {
+                showLoading(false);
+                await _storage.write('user', user.toStorage());
+                Fluttertoast.showToast(msg: 'Welcome ${user.fullName}!');
+                CustomNavigator().pushAndRemoveUntil(const MyHomePage());
+              });
             });
-          });
+          } else {
+            showLoading(false);
+          }
         });
       } else {
-
         // Login
         _authService.login(email: email, password: password).then((value) {
           Fluttertoast.showToast(msg: value);

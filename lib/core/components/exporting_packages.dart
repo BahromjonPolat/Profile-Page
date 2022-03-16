@@ -13,7 +13,7 @@ export 'package:profile/core/constants/app_strings.dart';
 // Data
 export 'package:profile/core/data/network_links.dart';
 export 'package:profile/core/data/static_data.dart';
-export 'package:profile/core/admin_panel/data/admin_data.dart';
+export 'package:profile/core/data/admin_data.dart';
 
 
 // Widgets
@@ -69,8 +69,7 @@ export 'package:profile/services/auth_service.dart';
 export 'package:profile/services/message_service.dart';
 
 // Themes
-export 'package:profile/core/components/theme/my_theme.dart';
-
+export 'package:profile/core/theme/app_theme.dart';
 // Extensions
 export 'package:profile/core/extensions/widget_extensions.dart';
 

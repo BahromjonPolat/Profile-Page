@@ -2,7 +2,7 @@ name: profile
 description: A new Flutter project.
 
 
-version: 1.2.0+4
+version: 1.2.1+5
 
 environment:
   sdk: ">=2.15.0 <3.0.0"
@@ -59,3 +59,4 @@ flutter:
         - asset: assets/fonts/SF-Pro-Display-Medium.otf
         - asset: assets/fonts/SF-Pro-Display-Semibold.otf
           weight: 600
+~
